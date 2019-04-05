@@ -5,10 +5,10 @@
         <el-input v-model="form.title"></el-input>
       </el-form-item>
       <el-form-item label="内容：">
-        <el-input type="textarea" :rows="5" v-model="form.content"></el-input>
+        <el-input type="textarea" :rows="15" v-model="form.content"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button @click="submit">确定</el-button>
+        <el-button @click="submit" type="primary">确定</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -63,6 +63,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+.post{
+  width: 100%;
+}
 </style>
