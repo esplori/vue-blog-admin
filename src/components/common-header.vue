@@ -2,8 +2,8 @@
 * Created by QUDONGDONG901 2019/3/24
 */
 <template>
-  <div class='header'>
-    <div class="content">
+  <div class='common-header'>
+    <div class="header-content">
       <div class="menu-list">
         <router-link v-for="(item, index) in menuList" :key="index" tag="li" :to="{path: item.url, query: ''}">
           {{item.label}}
@@ -43,25 +43,24 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-  .header {
+  .common-header {
     background: #000;
     color: #fff;
     padding: 15px;
+    .header-content {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      .menu-list {
+        display: flex;
+        justify-content: center;
+        li {
+          margin: 0 15px;
+        }
+      }
+    }
+
   }
 
-  .content {
-    max-width: 1150px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .header li {
-    margin: 0 15px;
-  }
-
-  .menu-list {
-    display: flex;
-    justify-content: center;
-  }
 </style>

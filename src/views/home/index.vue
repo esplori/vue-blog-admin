@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div class="index-list">
     <commenHeader></commenHeader>
     <div class="index-content">
       <div v-for="(item,index) in list" :key="index" class="list-item">
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .list {
+  .index-list {
     width: 100%;
     margin: 0 auto;
     text-align: left;
