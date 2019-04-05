@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     handleOpen () {},
-    handleClose () {},
+    handleClose () {}
   }
 }
 </script>
