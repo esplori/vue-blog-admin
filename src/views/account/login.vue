@@ -36,7 +36,8 @@ export default {
           this.$router.push({path: 'index'})
         }
       })
-    }
+    },
+    register() {}
   }
 }
 </script>
