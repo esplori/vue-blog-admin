@@ -62,13 +62,11 @@ export default {
 }
 </script>
 
-<style scoped lang="postcss">
+<style scoped lang="less">
   .list {
     width: 100%;
     margin: 0 auto;
     text-align: left;
-
-    &
     .menu {
       max-width: 1150px;
       margin: 0 auto;
@@ -77,37 +75,30 @@ export default {
       align-content: center;
       background: #000;
       color: #fff;
-
-      &
       .menu-item {
         display: inline-block;
         padding: 20px;
       }
 
     }
-    &
     .index-content {
       padding-top: 20px;
       width: 1150px;
       margin: 0 auto;
 
-      &
       .list-item {
         margin-bottom: 20px;
 
-        &
         .title {
           font-size: 18px;
           cursor: pointer;
 
-          &
           :hover {
             text-decoration: underline;
           }
 
         }
 
-        &
         .content {
           argin: 0 0 8px;
           font-size: 13px;
@@ -115,18 +106,15 @@ export default {
           color: #999;
         }
 
-        &
         .create-date {
           font-size: 13px;
           color: #999;
         }
 
-        &
         .handler {
           font-size: 12px;
           padding: 10px 0;
 
-          &
           span {
             cursor: pointer;
             margin-right: 10px;

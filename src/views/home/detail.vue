@@ -34,10 +34,10 @@ export default {
   .detail {
     text-align: left;
     margin-bottom: 20px;
-    & .title {
+    .title {
       font-size: 18px;
     }
-    & .content {
+    .content {
       font-size: 14px;
     }
   }

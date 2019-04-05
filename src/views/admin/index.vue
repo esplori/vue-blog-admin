@@ -24,6 +24,10 @@ export default {
     return {
       isCollapse: false
     }
+  },
+  methods: {
+    handleOpen () {},
+    handleClose () {},
   }
 }
 </script>
