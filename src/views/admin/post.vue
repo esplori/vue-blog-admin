@@ -28,6 +28,7 @@ export default {
     }
   },
   created () {
+    debugger
     if (this.$route.query.id) {
       this.getDetail(this.$route.query.id)
     }
@@ -54,8 +55,10 @@ export default {
     getDetail (id) {
       axios.get('/pages/list/' + id).then(res => {
         console.log('res', res)
+        debugger
         if (res.data) {
           this.form = res.data
+          debugger
         }
       })
     }

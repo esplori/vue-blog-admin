@@ -5,6 +5,7 @@ import index from '@/views/home/index'
 import post from '@/views/admin/post'
 import detail from '@/views/home/detail'
 import admin from '@/views/admin/index'
+import pageList from '@/views/admin/pageList'
 
 Vue.use(Router)
 
@@ -13,7 +14,8 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      component: login
+      component: login,
+      redirect: '/index'
     },
     {
       path: '/index',
@@ -31,7 +33,19 @@ export default new Router({
       component: admin,
       children: [
         {
+          path: '',
+          redirect: 'pageList'
+        },
+        {
           path: 'post',
+          component: post
+        },
+        {
+          path: 'pageList',
+          component: pageList
+        },
+        {
+          path: 'edit',
           component: post
         }
       ]

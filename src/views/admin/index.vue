@@ -3,7 +3,7 @@
   <div class="admin-index">
     <el-row>
       <el-col :span="4">
-        <el-menu default-active="/post" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+        <el-menu default-active="/admin/pageList" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
                  :collapse="isCollapse" :router="true" :unique-opened="false">
           <el-submenu index="1">
             <template slot="title">
@@ -11,8 +11,8 @@
               <span slot="title">控制台</span>
             </template>
             <el-menu-item-group>
+              <el-menu-item index="/admin/pageList">文章管理</el-menu-item>
               <el-menu-item index="/admin/post">发布文章</el-menu-item>
-              <el-menu-item index="">文章管理</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
