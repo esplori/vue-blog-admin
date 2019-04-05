@@ -8,6 +8,17 @@
         <div class="create-date">{{item.createDate}}</div>
       </div>
     </div>
+    <div class="pagination-box" style="text-align: center">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="params.page"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="params.pageSize"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -22,7 +33,12 @@ export default {
         {label: '首页', url: 'index'},
         {label: '列表', url: 'index'},
         {label: '后台管理', url: 'admin'}
-      ]
+      ],
+      params: {
+        page: 1,
+        pageSize: 10
+      },
+      total: 0
     }
   },
   components: {
@@ -33,15 +49,27 @@ export default {
   },
   methods: {
     async getList () {
-      axios.get('/pages/list').then(res => {
+      axios.post('/pages/getList', this.params).then(res => {
+        debugger
         console.log('res', res)
-        if (res.data.length) {
-          this.list = res.data
+        if (res.data.result.length) {
+          this.list = res.data.result
+          this.total = res.data.total
+          console.log('total', this.total)
+          debugger
         }
       })
     },
     getDetail (id) {
       this.$router.push({path: 'detail', query: {id: id}})
+    },
+    handleSizeChange (val) {
+      this.params.pageSize = val
+      this.getList()
+    },
+    handleCurrentChange (val) {
+      this.params.page = val
+      this.getList()
     }
   }
 }
