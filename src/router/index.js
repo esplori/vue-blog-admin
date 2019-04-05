@@ -21,11 +21,6 @@ export default new Router({
       component: index
     },
     {
-      path: '/post',
-      name: 'post',
-      component: post
-    },
-    {
       path: '/detail',
       name: 'detail',
       component: detail
@@ -33,7 +28,13 @@ export default new Router({
     {
       path: '/admin',
       name: 'admin',
-      component: admin
+      component: admin,
+      children: [
+        {
+          path: 'post',
+          component: post
+        }
+      ]
     }
   ]
 })
