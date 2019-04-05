@@ -73,7 +73,22 @@ export default {
       })
     },
     download () {
-      window.open('/pages/download')
+      // window.open('/pages/download')
+      this.ajaxPostLoadFile('/pages/download', '11')
+    },
+    ajaxPostLoadFile (url, val) {
+      var form = document.createElement('form')
+      form.setAttribute('style', 'display:none')
+      form.setAttribute('target', '')
+      form.setAttribute('method', 'post')
+      form.setAttribute('action', url)
+      var tempInput = document.createElement('input')
+      tempInput.setAttribute('type', 'hidden')
+      tempInput.setAttribute('name', 'testName')
+      tempInput.setAttribute('value', val)
+      form.append(tempInput)
+      document.body.appendChild(form)
+      form.submit()
     }
   }
 }
