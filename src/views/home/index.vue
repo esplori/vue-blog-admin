@@ -8,7 +8,7 @@
         <div class="create-date">{{item.createDate}}</div>
       </div>
     </div>
-    <div class="pagination-box" style="text-align: center">
+    <div class="pagination-box" style="text-align: center;margin-top: 20px;">
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -50,13 +50,9 @@ export default {
   methods: {
     async getList () {
       axios.post('/pages/getList', this.params).then(res => {
-        debugger
-        console.log('res', res)
         if (res.data.result.length) {
           this.list = res.data.result
           this.total = res.data.total
-          console.log('total', this.total)
-          debugger
         }
       })
     },
