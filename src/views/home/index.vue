@@ -6,7 +6,6 @@
         <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
         <div class="content">{{item.content}}</div>
         <div class="create-date">{{item.createDate}}</div>
-        <div class="handler"><span @click="edit(item.id)">编辑</span><span @click="del(item.id)">删除</span></div>
       </div>
     </div>
   </div>
@@ -43,20 +42,6 @@ export default {
     },
     getDetail (id) {
       this.$router.push({path: 'detail', query: {id: id}})
-    },
-    toPost (url) {
-      this.$router.push({path: url})
-    },
-    del (id) {
-      axios.delete('/pages/list/' + id).then(res => {
-        if (res) {
-          this.$message.success('删除成功')
-          this.getList()
-        }
-      })
-    },
-    edit (id) {
-      this.$router.push({path: 'post', query: {id: id}})
     }
   }
 }
