@@ -16,6 +16,17 @@
         </template>
       </el-table-column>
     </el-table>
+    <div class="pagination-box" style="text-align: center;margin-top: 20px;">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="params.page"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="params.pageSize"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -28,7 +39,8 @@ export default {
       params: {
         page: 1,
         pageSize: 10
-      }
+      },
+      total: 0
     }
   },
   created () {
@@ -37,8 +49,9 @@ export default {
   methods: {
     getList () {
       axios.post('/pages/getList', this.params).then(res => {
-        if (res.data.length) {
-          this.list = res.data
+        if (res.data.result.length) {
+          this.list = res.data.result
+          this.total = res.data.total
         }
       })
     },
@@ -52,6 +65,14 @@ export default {
     },
     edit (id) {
       this.$router.push({path: 'post', query: {id: id}})
+    },
+    handleSizeChange (val) {
+      this.params.pageSize = val
+      this.getList()
+    },
+    handleCurrentChange (val) {
+      this.params.page = val
+      this.getList()
     }
   }
 }
