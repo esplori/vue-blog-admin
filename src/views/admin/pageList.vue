@@ -24,7 +24,11 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      list: []
+      list: [],
+      params: {
+        page: 1,
+        pageSize: 10
+      }
     }
   },
   created () {
@@ -32,7 +36,7 @@ export default {
   },
   methods: {
     getList () {
-      axios.get('/pages/list').then(res => {
+      axios.post('/pages/getList', this.params).then(res => {
         if (res.data.length) {
           this.list = res.data
         }
