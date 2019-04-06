@@ -5,7 +5,8 @@
         <el-input v-model="form.title"></el-input>
       </el-form-item>
       <el-form-item label="内容：">
-        <el-input type="textarea" :rows="15" v-model="form.content"></el-input>
+        <!--<el-input type="textarea" :rows="15" v-model="form.content"></el-input>-->
+        <mavon-editor v-model="form.content"></mavon-editor>
       </el-form-item>
       <el-form-item>
         <el-button @click="submit" type="primary">确定</el-button>
