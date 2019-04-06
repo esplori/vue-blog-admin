@@ -1,4 +1,3 @@
-<script src="../../../front-vue-bak/config/index.js"></script>/**
 * Created by QUDONGDONG901 2019/3/24
 */
 <template>
@@ -26,7 +25,6 @@ export default {
     return {
       menuList: [
         {label: '首页', url: 'index'},
-        {label: '文章列表', url: 'index'},
         {label: '后台管理', url: 'admin'}
       ]
     }

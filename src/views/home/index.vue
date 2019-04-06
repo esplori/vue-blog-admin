@@ -4,12 +4,13 @@
     <div class="index-content">
       <div v-for="(item,index) in list" :key="index" class="list-item">
         <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
-        <div class="content">{{item.content}}</div>
+        <div class="content">{{item.content.slice(0,120)}}...</div>
         <div class="create-date">{{item.createDate}}</div>
       </div>
     </div>
-    <div class="pagination-box" style="text-align: center;margin-top: 20px;">
+    <div class="pagination-box" style="text-align: center;margin: 20px auto;">
       <el-pagination
+        v-if="total"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="params.page"
@@ -29,11 +30,6 @@ export default {
   data () {
     return {
       list: [],
-      menuList: [
-        {label: '首页', url: 'index'},
-        {label: '列表', url: 'index'},
-        {label: '后台管理', url: 'admin'}
-      ],
       params: {
         page: 1,
         pageSize: 10
@@ -101,8 +97,8 @@ export default {
         .title {
           font-size: 18px;
           cursor: pointer;
-
-          :hover {
+          padding: 5px 0;
+          &:hover {
             text-decoration: underline;
           }
 
@@ -111,7 +107,6 @@ export default {
         .content {
           argin: 0 0 8px;
           font-size: 13px;
-          line-height: 24px;
           color: #999;
         }
 
