@@ -15,7 +15,7 @@ module.exports = {
         target: 'http://localhost:8080',
         changeOrigin: true,  //是否跨域
         pathRewrite: {
-          // '': ''   //需要rewrite重写的,
+          '': ''   //需要rewrite重写的,
         }
       }
     },
