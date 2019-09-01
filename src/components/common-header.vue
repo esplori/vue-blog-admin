@@ -42,8 +42,8 @@ export default {
 </script>
 <style lang="less" scoped>
   .common-header {
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #71777c;
     padding: 15px;
     .header-content {
       max-width: 1150px;

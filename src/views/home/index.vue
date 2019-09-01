@@ -87,9 +87,11 @@ export default {
 
     }
     .index-content {
-      padding-top: 20px;
+      padding: 20px;
       width: 1150px;
       margin: 0 auto;
+      background: #fff;
+      margin-top: 20px;
 
       .list-item {
         margin-bottom: 20px;
