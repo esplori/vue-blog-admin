@@ -1,6 +1,8 @@
 <template>
   <div class="admin-header">
-    <div>后台管理</div>
+    <div>
+      <router-link v-for="(item,index) in menus" :key="index" :to="{path: item.path}" tag="li">{{item.name}}</router-link>
+    </div>
     <div>欢迎：佚名</div>
   </div>
 </template>
@@ -9,7 +11,11 @@
 export default {
   name: 'admin-header',
   data () {
-    return {}
+    return {
+      menus: [
+        {name: '首页', path: '/index'}
+      ]
+    }
   }
 }
 </script>
@@ -17,8 +23,8 @@ export default {
 <style scoped lang="less">
   .admin-header {
     padding: 20px;
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #71777c;
     display: flex;
     justify-content: space-between;
   }

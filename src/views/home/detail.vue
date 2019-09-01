@@ -1,5 +1,5 @@
 <template>
-  <div class="home-detail2">
+  <div class="home-detail">
     <commenHeader></commenHeader>
     <div class="detail-content">
       <div class="title">{{form.title}}</div>
@@ -37,17 +37,23 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .home-detail2 {
+  .home-detail {
     width: 100%;
     text-align: left;
     .detail-content{
       width: 1150px;
       margin: 20px auto;
+      background: #fff;
+      padding: 20px;
       .title {
-        font-size: 18px;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+        font-weight: bold;
       }
       .content {
-        font-size: 14px;
+        font-size: 16px;
+        line-height: 30px;
       }
     }
   }
