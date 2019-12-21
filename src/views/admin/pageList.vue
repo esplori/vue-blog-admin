@@ -31,7 +31,9 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {getListApi} from '@/views/API/home.js'
+import {delApi} from '@/views/API/admin.js'
+
 export default {
   data () {
     return {
@@ -47,21 +49,19 @@ export default {
     this.getList()
   },
   methods: {
-    getList () {
-      axios.post('/pages/getList', this.params).then(res => {
-        if (res.data.result.length) {
-          this.list = res.data.result
-          this.total = res.data.total
-        }
-      })
+    async getList () {
+      let res = await getListApi(this.params)
+      if (res) {
+        this.list = res.result
+        this.total = res.total
+      }
     },
-    del (id) {
-      axios.delete('/pages/list/' + id).then(res => {
-        if (res) {
-          this.$message.success('删除成功')
-          this.getList()
-        }
-      })
+    async del (id) {
+      let res = await delApi(id)
+      if (res) {
+        this.$message.success('删除成功')
+        this.getList()
+      }
     },
     edit (id) {
       this.$router.push({path: 'post', query: {id: id}})

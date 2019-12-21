@@ -16,8 +16,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-
+import {loginApi} from '@/views/API/common.js'
 export default {
   data () {
     return {
@@ -29,13 +28,13 @@ export default {
     }
   },
   methods: {
-    login () {
-      axios.post('/account/login', this.form).then(res => {
-        console.log('res', res)
-        if (res.data.code === '0') {
+    async login () {
+      let res = await loginApi(this.form)
+      if (res) {
+        if (res) {
           this.$router.push({path: 'index'})
         }
-      })
+      }
     },
     register () {}
   }
