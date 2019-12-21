@@ -51,7 +51,7 @@ axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
   // 对响应数据做点什么
-  return response.data
+  return response
 }, function (error) {
   // 对响应错误做点什么
   tryHideFullScreenLoading()
@@ -78,7 +78,11 @@ export function get (url, params, options) {
       params: params // params是要与请求一起发送的URL参数
     }).then(res => {
       tryHideFullScreenLoading()
-      resolve(res)
+      if (res.data.code === '0') {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
     })
   })
 }
@@ -95,7 +99,65 @@ export function post (url, param, options) {
       data: param // data是要作为请求主体发送的数据,仅适用于请求方法“PUT”，“POST”和“PATCH”
     }).then(res => {
       tryHideFullScreenLoading()
-      resolve(res)
+      if (res.data.code === '0') {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
+    })
+  })
+}
+
+/**
+ * 删除
+ * @param url
+ * @param param
+ * @param options
+ * @returns {Promise<any>}
+ */
+export function deleteReq (url, param, options) {
+  if (options.showLoading) {
+    showFullScreenLoading()
+  }
+  return new Promise((resolve, reject) => {
+    axios({
+      method: 'delete',
+      url: url,
+      data: param // data是要作为请求主体发送的数据,仅适用于请求方法“PUT”，“POST”和“PATCH”
+    }).then(res => {
+      tryHideFullScreenLoading()
+      if (res.data.code === '0') {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
+    })
+  })
+}
+
+/**
+ * 修改
+ * @param url
+ * @param param
+ * @param options
+ * @returns {Promise<any>}
+ */
+export function put (url, param, options) {
+  if (options.showLoading) {
+    showFullScreenLoading()
+  }
+  return new Promise((resolve, reject) => {
+    axios({
+      method: 'put',
+      url: url,
+      data: param // data是要作为请求主体发送的数据,仅适用于请求方法“PUT”，“POST”和“PATCH”
+    }).then(res => {
+      tryHideFullScreenLoading()
+      if (res.data.code === '0') {
+        resolve(res.data)
+      } else {
+        reject(res)
+      }
     })
   })
 }

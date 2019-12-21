@@ -24,8 +24,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-
+import {getListApi} from '@/views/API/home.js'
 export default {
   data () {
     return {
@@ -45,12 +44,11 @@ export default {
   },
   methods: {
     async getList () {
-      axios.post('/pages/getList', this.params).then(res => {
-        if (res.data.result.length) {
-          this.list = res.data.result
-          this.total = res.data.total
-        }
-      })
+      let res = await getListApi(this.params)
+      if (res) {
+        this.list = res.result
+        this.total = res.total
+      }
     },
     getDetail (id) {
       this.$router.push({path: 'detail', query: {id: id}})
