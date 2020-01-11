@@ -99,7 +99,7 @@ export function post (url, param, options) {
       data: param // data是要作为请求主体发送的数据,仅适用于请求方法“PUT”，“POST”和“PATCH”
     }).then(res => {
       tryHideFullScreenLoading()
-      if (res.data.code === '0') {
+      if (res.data) {
         resolve(res.data)
       } else {
         reject(res)
