@@ -2,10 +2,10 @@
   <div class="index">
     <el-form label-width="80px" :model="form">
       <el-form-item label="账号">
-        <el-input v-model="form.name"></el-input>
+        <el-input v-model="form.username"></el-input>
       </el-form-item>
       <el-form-item label="密码">
-        <el-input v-model="form.pwd"></el-input>
+        <el-input v-model="form.password"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button @click="login" type="primary">登录</el-button>
