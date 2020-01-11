@@ -30,11 +30,19 @@ export default {
     }
   },
   // 当前定义的计算属性
-  computed: {},
+  computed: {
+  },
   // 监听属性
   watch: {},
   // 生命周期钩子---创建前
   created () {
+    let userinfo = localStorage.getItem('userInfo')
+    if (userinfo) {
+      if (userinfo.role === 'admin') {
+      } else {
+        this.menuList = this.menuList.slice(0, this.menuList.length - 1)
+      }
+    }
   },
   // 当前定义的函数
   methods: {}
