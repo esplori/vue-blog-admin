@@ -20,7 +20,6 @@ import {loginApi} from '@/views/API/common.js'
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       form: {
         name: '',
         pwd: ''
@@ -31,9 +30,8 @@ export default {
     async login () {
       let res = await loginApi(this.form)
       if (res) {
-        if (res) {
-          this.$router.push({path: 'index'})
-        }
+        localStorage.setItem('userInfo', JSON.stringify(res.result))
+        this.$router.push({path: 'index'})
       }
     },
     register () {}
