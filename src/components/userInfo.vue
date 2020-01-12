@@ -2,7 +2,7 @@
   <div class="userInfo">
     <el-dropdown>
       <span class="el-dropdown-link">
-        {{userInfo.username}}sdf<i class="el-icon-arrow-down el-icon--right"></i>
+        {{userInfo.username}}<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item divided>退出</el-dropdown-item>

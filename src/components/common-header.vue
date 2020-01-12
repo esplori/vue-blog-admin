@@ -38,12 +38,10 @@ export default {
   created () {
     let userinfo = localStorage.getItem('userInfo')
     if (userinfo) {
-      if (userinfo.role === 'admin') {
+      if (JSON.parse(userinfo).role === 'admin') {
       } else {
         this.menuList = this.menuList.slice(0, this.menuList.length - 1)
       }
-    } else {
-      this.menuList = this.menuList.slice(0, this.menuList.length - 1)
     }
   },
   // 当前定义的函数
