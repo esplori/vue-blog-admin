@@ -13,7 +13,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'login',
       redirect: '/index'
     },
     {
@@ -22,17 +21,14 @@ export default new Router({
     },
     {
       path: '/index',
-      name: 'index',
       component: index
     },
     {
       path: '/detail',
-      name: 'detail',
       component: detail
     },
     {
       path: '/admin',
-      name: 'admin',
       component: admin,
       children: [
         {

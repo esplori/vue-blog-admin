@@ -22,6 +22,8 @@ export default {
       if (userinfo) {
         console.log('JSON.parse(userinfo)', JSON.parse(userinfo))
         return JSON.parse(userinfo)
+      } else {
+        return {}
       }
     }
   }

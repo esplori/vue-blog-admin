@@ -42,6 +42,8 @@ export default {
       } else {
         this.menuList = this.menuList.slice(0, this.menuList.length - 1)
       }
+    } else {
+      this.menuList = this.menuList.slice(0, this.menuList.length - 1)
     }
   },
   // 当前定义的函数
