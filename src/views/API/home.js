@@ -7,7 +7,7 @@ export async function getListApi (data) {
   return post(url, data, options)
 }
 export async function getDetailApi (data) {
-  const Url = `${contextPath}/pages/list/${data}`
+  const Url = `${contextPath}/pages/getDetail`
   const options = {}
   return get(Url, data, options)
 }

@@ -57,7 +57,7 @@ export default {
       }
     },
     async del (id) {
-      let res = await delApi(id)
+      let res = await delApi({id: id})
       if (res) {
         this.$message.success('删除成功')
         this.getList()
