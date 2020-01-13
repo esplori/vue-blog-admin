@@ -76,7 +76,7 @@ export default {
       }
     },
     async getDetail (id) {
-      let res = await getDetailApi(id)
+      let res = await getDetailApi({id: id})
       if (res) {
         this.form = res.result
       }

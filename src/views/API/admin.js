@@ -1,4 +1,4 @@
-import {post, deleteReq, put} from '@/utils/axios.js'
+import {post} from '@/utils/axios.js'
 import contextPath from '@/config/context-path.js'
 
 export async function postPageApi (data) {
@@ -7,12 +7,12 @@ export async function postPageApi (data) {
   return post(url, data, options)
 }
 export async function delApi (data) {
-  const Url = `${contextPath}/pages/list/${data}`
+  const Url = `${contextPath}/pages/deleteItem`
   const options = {}
-  return deleteReq(Url, data, options)
+  return post(Url, data, options)
 }
 export async function editPageApi (data) {
-  const url = `${contextPath}/pages/list`
+  const url = `${contextPath}/pages/updateItem`
   const options = {}
-  return put(url, data, options)
+  return post(url, data, options)
 }
