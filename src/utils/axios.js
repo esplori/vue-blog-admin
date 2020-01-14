@@ -82,12 +82,7 @@ export function get (url, params, options) {
       url: url, // 在使用别名方法时， url、method、data 这些属性都不必在配置中指定。
       params: params // params是要与请求一起发送的URL参数
     }).then(res => {
-      tryHideFullScreenLoading()
-      if (res.data.code === '0') {
-        resolve(res.data)
-      } else {
-        reject(res)
-      }
+      handleData(res, resolve, reject)
     })
   })
 }
@@ -103,12 +98,16 @@ export function post (url, param, options) {
       url: url,
       data: param // data是要作为请求主体发送的数据,仅适用于请求方法“PUT”，“POST”和“PATCH”
     }).then(res => {
-      tryHideFullScreenLoading()
-      if (res.data) {
-        resolve(res.data)
-      } else {
-        reject(res)
-      }
+      handleData(res, resolve, reject)
     })
   })
+}
+
+function handleData (res, resolve, reject) {
+  tryHideFullScreenLoading()
+  if (res.data.code) {
+    resolve(res.data)
+  } else {
+    reject(res)
+  }
 }
