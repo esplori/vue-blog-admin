@@ -67,8 +67,6 @@ axios.interceptors.response.use(function (response) {
  *  axios 别名请求
  *  get
  *  post
- *  put
- *  delete
  * */
 
 // get请求
@@ -83,7 +81,7 @@ export function get (url, params, options) {
       params: params // params是要与请求一起发送的URL参数
     }).then(res => {
       handleData(res, resolve, reject)
-    })
+    }).catch(() => console.log('promise catch err')) // 捕获异常
   })
 }
 
@@ -99,14 +97,14 @@ export function post (url, param, options) {
       data: param // data是要作为请求主体发送的数据,仅适用于请求方法“PUT”，“POST”和“PATCH”
     }).then(res => {
       handleData(res, resolve, reject)
-    })
+    }).catch(() => console.log('promise catch err')) // 捕获异常
   })
 }
 
 function handleData (res, resolve, reject) {
   tryHideFullScreenLoading()
-  if (res.data.code) {
-    resolve(res.data)
+  if (res.data.code === 0) {
+    resolve(res.data.data)
   } else {
     reject(res)
   }
