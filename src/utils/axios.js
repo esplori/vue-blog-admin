@@ -60,6 +60,7 @@ axios.interceptors.response.use(function (response) {
 }, function (error) {
   // 对响应错误做点什么
   tryHideFullScreenLoading()
+  handleAuthenticated(error)
   return Promise.reject(error)
 })
 
@@ -107,5 +108,11 @@ function handleData (res, resolve, reject) {
     resolve(res.data.data)
   } else {
     reject(res)
+  }
+}
+function handleAuthenticated (res) {
+  switch (res.response.status) {
+    case 401:
+      location.href = '/#/login'
   }
 }
