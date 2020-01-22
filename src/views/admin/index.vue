@@ -52,7 +52,7 @@ export default {
     height: 100%;
     min-width: 1150px;
     .container{
-      margin: 10px;
+      padding-top: 10px;
       height: 100%;
       .el-row{
         height: 100%;
