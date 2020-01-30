@@ -2,7 +2,7 @@
   <div class="userInfo">
     <el-dropdown>
       <span class="el-dropdown-link">
-        李信<i class="el-icon-arrow-down el-icon--right"></i>
+        {{userInfo.username}}<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item divided>退出</el-dropdown-item>
@@ -15,17 +15,20 @@
 export default {
   data () {
     return {}
+  },
+  computed: {
+    userInfo () {
+      let userinfo = localStorage.getItem('userInfo')
+      if (userinfo) {
+        console.log('JSON.parse(userinfo)', JSON.parse(userinfo))
+        return JSON.parse(userinfo)
+      } else {
+        return {}
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
-  .userInfo {
-    color: #fff;
-  }
-
-  .el-dropdown-link {
-    cursor: pointer;
-    color: #fff;
-  }
 </style>
