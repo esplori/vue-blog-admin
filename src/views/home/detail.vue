@@ -3,14 +3,13 @@
     <commenHeader></commenHeader>
     <div class="detail-content">
       <div class="title">{{form.title}}</div>
-      <div class="content">{{form.content}}</div>
+      <div class="content" v-html="form.content"></div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
+import {getDetailApi} from '@/views/API/home.js'
 export default {
   data () {
     return {
@@ -24,13 +23,11 @@ export default {
     this.getDetail(this.$route.query.id)
   },
   methods: {
-    getDetail (id) {
-      axios.get('/pages/list/' + id).then(res => {
-        console.log('res', res)
-        if (res.data) {
-          this.form = res.data
-        }
-      })
+    async getDetail (id) {
+      let res = await getDetailApi({id: id})
+      if (res) {
+        this.form = res.result
+      }
     }
   }
 }
@@ -41,7 +38,7 @@ export default {
     width: 100%;
     text-align: left;
     .detail-content{
-      width: 1150px;
+      /*width: 1150px;*/
       margin: 20px auto;
       background: #fff;
       padding: 20px;

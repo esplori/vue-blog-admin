@@ -5,13 +5,12 @@
         <el-input v-model="form.title"></el-input>
       </el-form-item>
       <el-form-item label="内容：">
-        <!--<el-input type="textarea" :rows="15" v-model="form.content"></el-input>-->
-        <mavon-editor v-model="form.content"></mavon-editor>
+        <tyinmce v-model="form.content"></tyinmce>
       </el-form-item>
       <el-form-item>
         <el-button @click="submit" type="primary">确定</el-button>
       </el-form-item>
-      <el-form-item>
+      <!-- <el-form-item>
         <el-upload
           class="upload-demo"
           action="/pages/upload"
@@ -20,17 +19,18 @@
           :file-list="fileList">
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
-      </el-form-item>
-      <el-form-item>
+      </el-form-item> -->
+      <!-- <el-form-item>
         <el-button @click="download">下载</el-button>
-      </el-form-item>
+      </el-form-item> -->
     </el-form>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
+import tyinmce from '@tinymce/tinymce-vue'
+import {getDetailApi} from '@/views/API/home.js'
+import {postPageApi, editPageApi} from '@/views/API/admin.js'
 export default {
   data () {
     return {
@@ -42,39 +42,46 @@ export default {
       fileList: []
     }
   },
+  components: {
+    tyinmce
+  },
+  mounted () {
+  },
   created () {
-    if (this.$route.query.id) {
-      this.getDetail(this.$route.query.id)
+    let id = this.$route.query.id
+    if (id) {
+      this.getDetail(id)
     }
   },
   methods: {
     submit () {
       if (this.form.id) {
-        axios.put('/pages/list', this.form).then(res => {
-          console.log('res', res)
-          if (res) {
-            this.$message.success('修改成功')
-          }
-        })
+        this.editPage()
       } else {
-        axios.post('/pages/list', this.form).then(res => {
-          console.log('res', res)
-          if (res) {
-            this.$message.success('添加成功')
-            this.$router.push({path: '/index'})
-          }
-        })
+        this.postPage()
       }
     },
-    getDetail (id) {
-      axios.get('/pages/list/' + id).then(res => {
-        if (res.data) {
-          this.form = res.data
-        }
-      })
+    async editPage () {
+      let res = await editPageApi(this.form)
+      if (res) {
+        this.$message.success('修改成功')
+        this.$router.push({path: '/admin/pageList'})
+      }
+    },
+    async postPage () {
+      let res = await postPageApi(this.form)
+      if (res) {
+        this.$message.success('添加成功')
+        this.$router.push({path: '/admin/pageList'})
+      }
+    },
+    async getDetail (id) {
+      let res = await getDetailApi({id: id})
+      if (res) {
+        this.form = res.result
+      }
     },
     download () {
-      // window.open('/pages/download')
       this.ajaxPostLoadFile('/pages/download', '11')
     },
     ajaxPostLoadFile (url, val) {

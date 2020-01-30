@@ -40,6 +40,11 @@ export function tryHideFullScreenLoading () {
 // 在请求或响应被 then 或 catch 处理前拦截它们。
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
+  let userinfo = localStorage.getItem('userInfo')
+  if (userinfo) {
+    userinfo = JSON.parse(userinfo)
+    axios.defaults.headers.common['Authorization'] = userinfo.token
+  }
   // 在发送请求之前做些什么
   return config
 }, function (error) {
@@ -51,10 +56,11 @@ axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
   // 对响应数据做点什么
-  return response.data
+  return response
 }, function (error) {
   // 对响应错误做点什么
   tryHideFullScreenLoading()
+  handleAuthenticated(error)
   return Promise.reject(error)
 })
 
@@ -62,8 +68,6 @@ axios.interceptors.response.use(function (response) {
  *  axios 别名请求
  *  get
  *  post
- *  put
- *  delete
  * */
 
 // get请求
@@ -77,9 +81,8 @@ export function get (url, params, options) {
       url: url, // 在使用别名方法时， url、method、data 这些属性都不必在配置中指定。
       params: params // params是要与请求一起发送的URL参数
     }).then(res => {
-      tryHideFullScreenLoading()
-      resolve(res)
-    })
+      handleData(res, resolve, reject)
+    }).catch(() => console.log('promise catch err')) // 捕获异常
   })
 }
 
@@ -94,8 +97,22 @@ export function post (url, param, options) {
       url: url,
       data: param // data是要作为请求主体发送的数据,仅适用于请求方法“PUT”，“POST”和“PATCH”
     }).then(res => {
-      tryHideFullScreenLoading()
-      resolve(res)
-    })
+      handleData(res, resolve, reject)
+    }).catch(() => console.log('promise catch err')) // 捕获异常
   })
+}
+
+function handleData (res, resolve, reject) {
+  tryHideFullScreenLoading()
+  if (res.data.code === 0) {
+    resolve(res.data.data)
+  } else {
+    reject(res)
+  }
+}
+function handleAuthenticated (res) {
+  switch (res.response.status) {
+    case 401:
+      location.href = '/#/login'
+  }
 }

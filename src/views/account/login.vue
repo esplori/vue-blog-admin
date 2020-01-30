@@ -2,10 +2,10 @@
   <div class="index">
     <el-form label-width="80px" :model="form">
       <el-form-item label="账号">
-        <el-input v-model="form.name"></el-input>
+        <el-input v-model="form.username"></el-input>
       </el-form-item>
       <el-form-item label="密码">
-        <el-input v-model="form.pwd"></el-input>
+        <el-input v-model="form.password" type="password"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button @click="login" type="primary">登录</el-button>
@@ -16,26 +16,23 @@
 </template>
 
 <script>
-import axios from 'axios'
-
+import {loginApi} from '@/views/API/common.js'
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       form: {
-        name: '',
-        pwd: ''
+        username: '',
+        password: ''
       }
     }
   },
   methods: {
-    login () {
-      axios.post('/account/login', this.form).then(res => {
-        console.log('res', res)
-        if (res.data.code === '0') {
-          this.$router.push({path: 'index'})
-        }
-      })
+    async login () {
+      let res = await loginApi(this.form)
+      if (res) {
+        localStorage.setItem('userInfo', JSON.stringify(res.result))
+        this.$router.push({path: 'index'})
+      }
     },
     register () {}
   }

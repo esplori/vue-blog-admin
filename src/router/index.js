@@ -13,23 +13,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'login',
-      component: login,
       redirect: '/index'
     },
     {
+      path: '/login',
+      component: login
+    },
+    {
       path: '/index',
-      name: 'index',
       component: index
     },
     {
       path: '/detail',
-      name: 'detail',
       component: detail
     },
     {
       path: '/admin',
-      name: 'admin',
       component: admin,
       children: [
         {
