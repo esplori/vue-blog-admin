@@ -10,7 +10,7 @@
       <el-form-item>
         <el-button @click="submit" type="primary">确定</el-button>
       </el-form-item>
-      <el-form-item>
+      <!-- <el-form-item>
         <el-upload
           class="upload-demo"
           action="/pages/upload"
@@ -19,10 +19,10 @@
           :file-list="fileList">
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
-      </el-form-item>
-      <el-form-item>
+      </el-form-item> -->
+      <!-- <el-form-item>
         <el-button @click="download">下载</el-button>
-      </el-form-item>
+      </el-form-item> -->
     </el-form>
   </div>
 </template>
