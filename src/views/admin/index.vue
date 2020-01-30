@@ -50,7 +50,6 @@ export default {
 
   .admin-index{
     height: 100%;
-    min-width: 1150px;
     .container{
       padding-top: 10px;
       height: 100%;
