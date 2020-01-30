@@ -4,7 +4,7 @@
     <div class="index-content">
       <div v-for="(item,index) in list" :key="index" class="list-item">
         <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
-        <div class="content">{{item.content.slice(0,120)}}...</div>
+        <!-- <div class="content">{{item.content.slice(0,120)}}...</div> -->
         <div class="create-date">{{item.createDate}}</div>
       </div>
     </div>
