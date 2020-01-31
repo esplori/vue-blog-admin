@@ -3,7 +3,7 @@
     <div>
       <router-link v-for="(item,index) in menus" :key="index" :to="{path: item.path}" tag="li">{{item.name}}</router-link>
     </div>
-    <div>欢迎：佚名</div>
+    <userInfo></userInfo>
   </div>
 </template>
 
@@ -16,6 +16,9 @@ export default {
         {name: '首页', path: '/index'}
       ]
     }
+  },
+  components: {
+    userInfo: () => import('@/components/userInfo.vue')
   }
 }
 </script>
