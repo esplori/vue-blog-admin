@@ -1,10 +1,10 @@
 <template>
   <div class="index-list">
-    <commenHeader></commenHeader>
+    <commenHeader @changeCate="changeCate"></commenHeader>
     <div class="index-content">
       <el-row>
         <el-col :span='20'>
-          <contentList></contentList>
+          <contentList :cate='cate'></contentList>
         </el-col>
         <el-col :span="4">
             <right></right>
@@ -18,6 +18,7 @@
 export default {
   data () {
     return {
+      cate: 1
     }
   },
   components: {
@@ -28,6 +29,9 @@ export default {
   created () {
   },
   methods: {
+    changeCate (cate) {
+      this.cate = cate
+    }
   }
 }
 </script>
