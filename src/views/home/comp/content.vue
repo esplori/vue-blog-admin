@@ -35,7 +35,6 @@ export default {
   },
   watch: {
     cate (val) {
-      debugger
       this.params.cate = parseInt(val)
       this.getList()
     }
