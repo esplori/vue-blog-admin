@@ -26,3 +26,8 @@ export async function editPageApi (data) {
   const options = {}
   return post(url, data, options)
 }
+export async function getCateApi (data) {
+  const url = `${contextPath}/pages/getCate`
+  const options = {}
+  return get(url, data, options)
+}
