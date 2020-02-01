@@ -1,6 +1,6 @@
 <template>
   <div class="userInfo">
-    <el-dropdown>
+    <el-dropdown v-if="userInfo">
       <span class="el-dropdown-link">
         {{userInfo.username}}<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
@@ -23,7 +23,7 @@ export default {
         console.log('JSON.parse(userinfo)', JSON.parse(userinfo))
         return JSON.parse(userinfo)
       } else {
-        return {}
+        return false
       }
     }
   }
@@ -31,4 +31,8 @@ export default {
 </script>
 
 <style scoped>
+.userInfo{
+  display: flex;
+  align-items: center;
+}
 </style>
