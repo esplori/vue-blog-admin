@@ -2,7 +2,7 @@
   <div class="func">
     <div class="title">功能</div>
     <div class="func-item">
-      <div>登录</div>
+      <div @click="toLogin">登录</div>
       <div>注册</div>
       <div @click="toAdmin">后台管理</div>
     </div>
@@ -25,6 +25,9 @@ export default {
   methods: {
     toAdmin (condition) {
       this.$router.push({path: 'admin'})
+    },
+    toLogin (condition) {
+      this.$router.push({path: 'login'})
     }
   }
 }
