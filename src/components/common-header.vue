@@ -4,15 +4,17 @@
   <div class='common-header'>
     <div class="header-content">
       <div class="menu-list">
-        <router-link v-for="(item, index) in menuList" :key="index" tag="li" :to="{path: item.url, query: ''}">
-          {{item.label}}
-        </router-link>
+        <el-menu :default-active="activeIndex" class="el-menu-header" mode="horizontal" @select="handleSelect">
+          <el-menu-item :index="String(item.id)" v-for="(item,index) in menuList" :key="index">{{item.name}}</el-menu-item>
+          <!-- <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item> -->
+        </el-menu>
       </div>
       <userInfo></userInfo>
     </div>
   </div>
 </template>
 <script>
+import {getCateApi} from '@/views/API/admin.js'
 export default {
   // 子组件
   components: {
@@ -26,7 +28,8 @@ export default {
       menuList: [
         {label: '首页', url: 'index'},
         {label: '后台管理', url: 'admin'}
-      ]
+      ],
+      activeIndex: '1'
     }
   },
   // 当前定义的计算属性
@@ -43,9 +46,20 @@ export default {
         this.menuList = this.menuList.slice(0, this.menuList.length - 1)
       }
     }
+    this.getCate()
   },
   // 当前定义的函数
-  methods: {}
+  methods: {
+    async getCate () {
+      let res = await getCateApi({})
+      if (res) {
+        this.menuList = res.result || []
+      }
+    },
+    handleSelect (cate) {
+      this.$emit('changeCate', cate)
+    }
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -61,8 +75,12 @@ export default {
       .menu-list {
         display: flex;
         justify-content: center;
+        width: 90%;
         li {
           margin: 0 15px;
+        }
+        .el-menu-header{
+          width: 100%;
         }
       }
     }
