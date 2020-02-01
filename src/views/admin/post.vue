@@ -29,8 +29,7 @@
 
 <script>
 import tyinmce from '@tinymce/tinymce-vue'
-import {getDetailApi} from '@/views/API/home.js'
-import {postPageApi, editPageApi} from '@/views/API/admin.js'
+import {postPageApi, editPageApi, getDetailApi} from '@/views/API/admin.js'
 export default {
   data () {
     return {

@@ -114,6 +114,6 @@ function handleAuthenticated (res) {
   switch (res.response.status) {
     case 401:
       location.href = '/#/login'
-      localStorage.clear();
+      localStorage.clear()
   }
 }
