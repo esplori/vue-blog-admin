@@ -7,6 +7,11 @@
       <el-form-item label="内容：">
         <tyinmce v-model="form.content"></tyinmce>
       </el-form-item>
+      <el-form-item label="分类：">
+        <el-select v-model="form.cate">
+          <el-option v-for="(item,index) in cateList" :key=index :label="item.name" :value="item.id"></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item>
         <el-button @click="submit" type="primary">确定</el-button>
       </el-form-item>
@@ -29,15 +34,17 @@
 
 <script>
 import tyinmce from '@tinymce/tinymce-vue'
-import {postPageApi, editPageApi, getDetailApi} from '@/views/API/admin.js'
+import {postPageApi, editPageApi, getDetailApi, getCateApi} from '@/views/API/admin.js'
 export default {
   data () {
     return {
       form: {
         id: '',
         title: '',
-        content: ''
+        content: '',
+        cate: ''
       },
+      cateList: [],
       fileList: []
     }
   },
@@ -51,8 +58,15 @@ export default {
     if (id) {
       this.getDetail(id)
     }
+    this.getCate()
   },
   methods: {
+    async getCate () {
+      let res = await getCateApi({})
+      if (res) {
+        this.cateList = res.result || []
+      }
+    },
     submit () {
       if (this.form.id) {
         this.editPage()
