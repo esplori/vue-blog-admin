@@ -31,8 +31,7 @@
 </template>
 
 <script>
-import {getListApi} from '@/views/API/home.js'
-import {delApi} from '@/views/API/admin.js'
+import {delApi, getListApi} from '@/views/API/admin.js'
 
 export default {
   data () {

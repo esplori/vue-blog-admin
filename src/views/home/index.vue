@@ -86,8 +86,8 @@ export default {
     }
     .index-content {
       padding: 20px;
-      /*width: 1150px;*/
-      /*margin: 0 auto;*/
+      max-width: 1150px;
+      margin: 0 auto;
       background: #fff;
       margin-top: 20px;
 
@@ -105,7 +105,7 @@ export default {
         }
 
         .content {
-          argin: 0 0 8px;
+          margin: 0 0 8px;
           font-size: 13px;
           color: #999;
         }
