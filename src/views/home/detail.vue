@@ -38,7 +38,7 @@ export default {
     width: 100%;
     text-align: left;
     .detail-content{
-      /*width: 1150px;*/
+      max-width: 1150px;
       margin: 20px auto;
       background: #fff;
       padding: 20px;
