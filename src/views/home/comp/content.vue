@@ -7,7 +7,7 @@
           </div>
         <div class="pagination-box" style="text-align: center;margin: 20px auto;">
           <el-pagination
-            v-if="total>10"
+            v-if="total"
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
             :current-page="params.page"
@@ -27,9 +27,22 @@ export default {
       list: [],
       params: {
         page: 1,
-        pageSize: 10
+        pageSize: 10,
+        cate: ''
       },
       total: 0
+    }
+  },
+  watch: {
+    cate (val) {
+      debugger
+      this.params.cate = parseInt(val)
+      this.getList()
+    }
+  },
+  props: {
+    cate: {
+      default: 1
     }
   },
   components: {
