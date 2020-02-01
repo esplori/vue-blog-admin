@@ -1,6 +1,5 @@
 <template>
   <div class="home-detail">
-    <commenHeader></commenHeader>
     <div class="detail-content">
       <div class="title">{{form.title}}</div>
       <div class="content" v-html="form.content"></div>
