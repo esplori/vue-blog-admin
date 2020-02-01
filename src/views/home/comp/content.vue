@@ -79,10 +79,13 @@ export default {
 
         .title {
           font-size: 18px;
+          font-weight: 600;
+          line-height: 1.6;
+          color: #1a1a1a;
           cursor: pointer;
           padding: 5px 0;
           &:hover {
-            text-decoration: underline;
+            color: #175199;
           }
 
         }

@@ -3,7 +3,7 @@
     <div class="title">功能</div>
     <div class="func-item">
       <div @click="toLogin">登录</div>
-      <div>注册</div>
+      <!-- <div>注册</div> -->
       <div @click="toAdmin">后台管理</div>
     </div>
   </div>
