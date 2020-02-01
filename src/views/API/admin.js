@@ -1,6 +1,16 @@
-import {post} from '@/utils/axios.js'
+import {get, post} from '@/utils/axios.js'
 import contextPath from '@/config/context-path.js'
 
+export async function getListApi (data) {
+  const url = `${contextPath}/pages/admin/getList`
+  const options = {}
+  return post(url, data, options)
+}
+export async function getDetailApi (data) {
+  const Url = `${contextPath}/pages/admin/getDetail`
+  const options = {}
+  return get(Url, data, options)
+}
 export async function postPageApi (data) {
   const url = `${contextPath}/pages/list`
   const options = {}
