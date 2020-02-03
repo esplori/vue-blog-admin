@@ -2,7 +2,7 @@
   <div class="content-detail">
     <div v-for="(item,index) in list" :key="index" class="list-item">
             <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
-          <!-- <div class="content">{{item.content.slice(0,120)}}...</div> -->
+          <div class="content">{{item.content | filterContent}}</div>
             <div class="create-date">{{item.createDate}}</div>
           </div>
         <div class="pagination-box" style="text-align: center;margin: 20px auto;">
@@ -45,6 +45,15 @@ export default {
     }
   },
   components: {
+  },
+  filters: {
+    /**
+     * 过滤富文本的html标签,截取前120个字作为描述
+     */
+    filterContent (str) {
+      let val = str.replace(/<[^>]+>/g, '')
+      return val.length >= 120 ? val.slice(0, 120) + '...' : val
+    }
   },
   created () {
     this.getList()
