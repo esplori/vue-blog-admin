@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// import {getDetailApi} from '@/views/API/home.js'
 export default {
   data () {
     return {
