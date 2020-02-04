@@ -34,6 +34,7 @@ export default {
 
 <style scoped lang="less">
   .func {
+    padding-top: 20px;
     width: 100%;
     text-align: left;
     border-top: 1px solid #ddd;
