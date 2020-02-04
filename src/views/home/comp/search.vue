@@ -24,7 +24,7 @@ export default {
 
 <style scoped lang="less">
   .search {
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     width: 100%;
     text-align: left;
   }
