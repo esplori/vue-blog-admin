@@ -28,6 +28,7 @@ export default {
 
 <style scoped lang="less">
   .right-detail {
+    padding:  10px;
     width: 100%;
     text-align: left;
     div{
