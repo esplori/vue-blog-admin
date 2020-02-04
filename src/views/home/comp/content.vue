@@ -83,6 +83,7 @@ export default {
 
 <style scoped lang="less">
   .content-detail {
+    padding-right: 20px;
     .list-item {
         margin-bottom: 20px;
 
