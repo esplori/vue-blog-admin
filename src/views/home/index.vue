@@ -23,6 +23,7 @@ export default {
     }
   },
   components: {
+    // 公共头部
     commenHeader: () => import('@/components/common-header.vue'),
     contentList: () => import('./comp/content.vue'),
     right: () => import('./comp/right.vue')
