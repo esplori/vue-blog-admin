@@ -1,6 +1,6 @@
 <template>
   <div class="index-list">
-    aaa
+    test
     <commenHeader @changeCate="changeCate"></commenHeader>
     <div class="index-content">
       <el-row>
