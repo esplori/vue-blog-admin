@@ -62,6 +62,9 @@ export default {
         this.getList()
       }
     },
+    /**
+     * 编辑
+     */
     edit (id) {
       this.$router.push({path: 'post', query: {id: id}})
     },
