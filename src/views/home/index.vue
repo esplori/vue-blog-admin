@@ -31,6 +31,9 @@ export default {
   created () {
   },
   methods: {
+    /**
+     * 切换分类
+     */
     changeCate (cate) {
       this.cate = cate
     }
