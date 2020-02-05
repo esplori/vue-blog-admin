@@ -67,7 +67,8 @@ export default {
       }
     },
     getDetail (id) {
-      this.$router.push({path: 'detail', query: {id: id}})
+      // this.$router.push({path: 'detail', query: {id: id}})
+      window.open('/detail?id=' + id)
     },
     handleSizeChange (val) {
       this.params.pageSize = val
