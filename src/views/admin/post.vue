@@ -20,6 +20,7 @@
           class="upload-demo"
           action="/bootService/pages/upload"
           multiple
+          :headers="headers"
           :limit="3"
           :file-list="fileList">
           <el-button size="small" type="primary">点击上传</el-button>
@@ -52,6 +53,18 @@ export default {
     tyinmce
   },
   mounted () {
+  },
+  computed: {
+    headers () {
+      let userinfo = localStorage.getItem('userInfo')
+      if (userinfo) {
+        userinfo = JSON.parse(userinfo)
+        return {
+          Authorization: userinfo.token
+        }
+      }
+      return null
+    }
   },
   created () {
     let id = this.$route.query.id
