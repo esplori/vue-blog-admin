@@ -31,3 +31,18 @@ export async function getCateApi (data) {
   const options = {}
   return get(url, data, options)
 }
+export async function updateCateApi (data) {
+  const url = `${contextPath}/pages/updateCate`
+  const options = {}
+  return post(url, data, options)
+}
+export async function delCateApi (data) {
+  const Url = `${contextPath}/pages/delCate`
+  const options = {}
+  return post(Url, data, options)
+}
+export async function insertCateApi (data) {
+  const url = `${contextPath}/pages/insertCate`
+  const options = {}
+  return post(url, data, options)
+}

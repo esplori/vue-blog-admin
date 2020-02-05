@@ -1,5 +1,6 @@
 <template>
   <div class="page-list">
+    <el-button type="primary" @click="insertPage">新增文章</el-button>
     <el-table
       :data="list"
       style="width: 100%">
@@ -48,6 +49,11 @@ export default {
     this.getList()
   },
   methods: {
+    insertPage () {
+      this.$router.push({
+        path: 'post'
+      })
+    },
     async getList () {
       let res = await getListApi(this.params)
       if (res) {

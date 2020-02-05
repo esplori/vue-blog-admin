@@ -6,6 +6,7 @@ import post from '@/views/admin/post'
 import detail from '@/views/home/detail'
 import admin from '@/views/admin/index'
 import pageList from '@/views/admin/pageList'
+import cateList from '@/views/admin/cateList'
 
 Vue.use(Router)
 
@@ -46,6 +47,10 @@ export default new Router({
         {
           path: 'edit',
           component: post
+        },
+        {
+          path: 'cate',
+          component: cateList
         }
       ]
     }
