@@ -68,7 +68,7 @@ export default {
     },
     getDetail (id) {
       // this.$router.push({path: 'detail', query: {id: id}})
-      //详情另开页面
+      // 详情另开页面
       window.open('/#/detail?id=' + id)
     },
     handleSizeChange (val) {
