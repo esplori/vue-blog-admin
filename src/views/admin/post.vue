@@ -5,7 +5,7 @@
         <el-input v-model="form.title"></el-input>
       </el-form-item>
       <el-form-item label="内容：">
-        <tyinmce v-model="form.content"></tyinmce>
+        <textarea id="mytextarea">Hello, World!</textarea>
       </el-form-item>
       <el-form-item label="分类：">
         <el-select v-model="form.cate">
@@ -22,6 +22,7 @@
           multiple
           :headers="headers"
           :limit="3"
+          :on-success="handleSuccess"
           :file-list="fileList">
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
@@ -29,13 +30,17 @@
       <!-- <el-form-item>
         <el-button @click="download">下载</el-button>
       </el-form-item> -->
+
+    <img :src="imgUrl" alt="">
+
     </el-form>
   </div>
 </template>
-
 <script>
-import tyinmce from '@tinymce/tinymce-vue'
 import {postPageApi, editPageApi, getDetailApi, getCateApi} from '@/views/API/admin.js'
+tinymce.init({
+  selector: '#mytextarea'
+})
 export default {
   data () {
     return {
@@ -46,11 +51,11 @@ export default {
         cate: ''
       },
       cateList: [],
-      fileList: []
+      fileList: [],
+      imgUrl: ''
     }
   },
   components: {
-    tyinmce
   },
   mounted () {
   },
@@ -109,6 +114,9 @@ export default {
     },
     download () {
       this.ajaxPostLoadFile('/pages/download', '11')
+    },
+    handleSuccess (response, file, fileList) {
+      this.imgUrl = '/bootService' + response
     },
     ajaxPostLoadFile (url, val) {
       var form = document.createElement('form')
