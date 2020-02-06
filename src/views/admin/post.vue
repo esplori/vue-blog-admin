@@ -38,9 +38,6 @@
 </template>
 <script>
 import {postPageApi, editPageApi, getDetailApi, getCateApi} from '@/views/API/admin.js'
-tinymce.init({
-  selector: '#mytextarea'
-})
 export default {
   data () {
     return {
@@ -58,6 +55,9 @@ export default {
   components: {
   },
   mounted () {
+    tinymce.init({
+      selector: '#mytextarea'
+    })
   },
   computed: {
     headers () {
