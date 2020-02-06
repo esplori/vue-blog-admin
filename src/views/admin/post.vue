@@ -56,7 +56,10 @@ export default {
   },
   mounted () {
     tinymce.init({
-      selector: '#mytextarea'
+      selector: '#mytextarea',
+      language: 'zh_CN',
+      plugins: 'image',
+      toolbar: 'image'
     })
   },
   computed: {
