@@ -5,7 +5,7 @@
         <el-input v-model="form.title"></el-input>
       </el-form-item>
       <el-form-item label="内容：">
-        <textarea id="mytextarea">Hello, World!</textarea>
+        <editor id="tinymce" v-model="form.content" :init="init"></editor>
       </el-form-item>
       <el-form-item label="分类：">
         <el-select v-model="form.cate">
@@ -15,7 +15,7 @@
       <el-form-item>
         <el-button @click="submit" type="primary">确定</el-button>
       </el-form-item>
-      <el-form-item>
+      <!-- <el-form-item>
         <el-upload
           class="upload-demo"
           action="/bootService/pages/upload"
@@ -26,17 +26,28 @@
           :file-list="fileList">
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
-      </el-form-item>
+      </el-form-item> -->
       <!-- <el-form-item>
         <el-button @click="download">下载</el-button>
       </el-form-item> -->
-
-    <img :src="imgUrl" alt="">
-
     </el-form>
   </div>
 </template>
 <script>
+import tinymce from 'tinymce/tinymce'
+import Editor from '@tinymce/tinymce-vue'
+import 'tinymce/themes/silver/theme'
+
+import 'tinymce/plugins/image'
+import 'tinymce/plugins/link'
+import 'tinymce/plugins/code'
+import 'tinymce/plugins/table'
+import 'tinymce/plugins/lists'
+import 'tinymce/plugins/contextmenu'
+import 'tinymce/plugins/wordcount'
+import 'tinymce/plugins/colorpicker'
+import 'tinymce/plugins/textcolor'
+
 import {postPageApi, editPageApi, getDetailApi, getCateApi} from '@/views/API/admin.js'
 export default {
   data () {
@@ -49,18 +60,21 @@ export default {
       },
       cateList: [],
       fileList: [],
-      imgUrl: ''
+      init: {
+        skin_url: '/static/tinymce/skins/ui/oxide', // skin路径
+        height: 300, // 编辑器高度
+        branding: false, // 是否禁用“Powered by TinyMCE”
+        menubar: true, // 顶部菜单栏显示
+        plugins: 'link lists image code table colorpicker textcolor wordcount contextmenu',
+        toolbar: 'bold italic underline strikethrough | fontsizeselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent blockquote | undo redo | link unlink image code | removeformat'
+      }
     }
   },
   components: {
+    editor: Editor
   },
   mounted () {
-    tinymce.init({
-      selector: '#mytextarea',
-      language: 'zh_CN',
-      plugins: 'image',
-      toolbar: 'image'
-    })
+    tinymce.init({})
   },
   computed: {
     /**
