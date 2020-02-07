@@ -63,6 +63,9 @@ export default {
     })
   },
   computed: {
+    /**
+     * 添加token
+     */
     headers () {
       let userinfo = localStorage.getItem('userInfo')
       if (userinfo) {
