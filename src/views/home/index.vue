@@ -3,10 +3,10 @@
     <commenHeader @changeCate="changeCate"></commenHeader>
     <div class="index-content">
       <el-row>
-        <el-col :span='20'>
+        <el-col :span='18'>
           <contentList :cate='cate'></contentList>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="6">
             <right></right>
         </el-col>
       </el-row>
