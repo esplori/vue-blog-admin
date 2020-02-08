@@ -4,12 +4,11 @@
   <div class='common-header'>
     <div class="header-content">
       <div class="menu-list">
-        <el-menu :default-active="activeIndex" class="el-menu-header" mode="horizontal" @select="handleSelect">
-          <el-menu-item :index="String(item.id)" v-for="(item,index) in menuList" :key="index">{{item.name}}</el-menu-item>
-          <!-- <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item> -->
-        </el-menu>
+          <ul class="cate-list">
+            <li v-for="(item, index) in menuList" :key="index">{{item.name}}</li>
+          </ul>
+          <userInfo></userInfo>
       </div>
-      <userInfo></userInfo>
     </div>
   </div>
 </template>
@@ -66,7 +65,8 @@ export default {
   .common-header {
     background: #fff;
     color: #71777c;
-    padding: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
     .header-content {
       max-width: 1150px;
       margin: 0 auto;
@@ -74,13 +74,16 @@ export default {
       justify-content: space-between;
       .menu-list {
         display: flex;
-        justify-content: center;
-        width: 90%;
-        li {
-          margin: 0 15px;
-        }
-        .el-menu-header{
-          width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .cate-list{
+          font-size: 14px;
+          li{
+            display: inline-block;
+            padding: 5px 30px;
+            font-weight: 400;
+          }
         }
       }
     }
