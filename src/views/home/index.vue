@@ -65,7 +65,7 @@ export default {
       max-width: 1150px;
       margin: 0 auto;
       background: #fff;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
   }

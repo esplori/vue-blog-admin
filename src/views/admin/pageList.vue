@@ -1,6 +1,6 @@
 <template>
   <div class="page-list">
-    <el-button type="primary" @click="insertPage">新增文章</el-button>
+    <el-button type="primary" @click="insertPage" size="small">新增文章</el-button>
     <el-table
       :data="list"
       style="width: 100%">
