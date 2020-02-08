@@ -5,7 +5,7 @@
     <div class="header-content">
       <div class="menu-list">
           <ul class="cate-list">
-            <li v-for="(item, index) in menuList" :key="index">{{item.name}}</li>
+            <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.id)">{{item.name}}</li>
           </ul>
           <userInfo></userInfo>
       </div>
@@ -83,6 +83,7 @@ export default {
             display: inline-block;
             padding: 5px 30px;
             font-weight: 400;
+            cursor: pointer;
           }
         }
       }
