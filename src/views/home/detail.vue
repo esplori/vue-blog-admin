@@ -3,11 +3,11 @@
     <detailHeader></detailHeader>
     <div class="detail-content">
       <el-row>
-        <el-col :span='20'>
+        <el-col :span='18'>
             <div class="title">{{form.title}}</div>
             <div class="content" v-html="form.content"></div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="6">
             <right></right>
         </el-col>
       </el-row>
