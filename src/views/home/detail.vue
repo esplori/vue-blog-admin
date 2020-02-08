@@ -1,8 +1,16 @@
 <template>
   <div class="home-detail">
+    <detailHeader></detailHeader>
     <div class="detail-content">
-      <div class="title">{{form.title}}</div>
-      <div class="content" v-html="form.content"></div>
+      <el-row>
+        <el-col :span='20'>
+            <div class="title">{{form.title}}</div>
+            <div class="content" v-html="form.content"></div>
+        </el-col>
+        <el-col :span="4">
+            <right></right>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -16,7 +24,8 @@ export default {
     }
   },
   components: {
-    commenHeader: () => import('@/components/common-header.vue')
+    detailHeader: () => import('@/components/detail-header'),
+    right: () => import('./comp/right')
   },
   created () {
     this.getDetail(this.$route.query.id)
@@ -38,14 +47,14 @@ export default {
     text-align: left;
     .detail-content{
       max-width: 1150px;
-      margin: 20px auto;
+      margin: 10px auto;
       background: #fff;
       padding: 20px;
       .title {
-        font-size: 24px;
+        font-size: 30px;
         margin-bottom: 20px;
-        color: #333;
-        font-weight: bold;
+        color: #404040;
+        font-weight: 400;
       }
       .content {
         font-size: 16px;
