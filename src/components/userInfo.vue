@@ -1,6 +1,6 @@
 <template>
   <div class="userInfo">
-    <el-dropdown v-if="userInfo">
+    <el-dropdown v-if="userInfo" @command="handleCommand">
       <span class="el-dropdown-link">
         {{userInfo.username}}<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
@@ -25,6 +25,11 @@ export default {
       } else {
         return false
       }
+    }
+  },
+  methods: {
+    handleCommand () {
+      this.$router.push({path: 'login'})
     }
   }
 }
