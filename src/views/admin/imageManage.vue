@@ -5,9 +5,6 @@
         <div class="item">
           <img :src="item" alt="" width="200px">
         </div>
-        <div class="item-name">
-          {{item}}
-        </div>
       </li>
     </ul>
   </div>
