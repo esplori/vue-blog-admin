@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <el-input placeholder="搜索..."></el-input>
+    <el-input type="text" placeholder="搜索..." v-model="form.searchKey"></el-input>
   </div>
 </template>
 
@@ -9,7 +9,9 @@
 export default {
   data () {
     return {
-      form: {}
+      form: {
+        searchKey: ''
+      }
     }
   },
   components: {

@@ -47,6 +47,7 @@ export default {
         div{
           font-size: 14px;
           padding: 3px 0;
+          cursor: pointer;
         }
       }
   }
