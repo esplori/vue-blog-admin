@@ -3,7 +3,7 @@
     <ul>
       <li v-for="(item,index) in list" :key="index">
         <div class="item">
-          <img :src="item" alt="" width="200px">
+          <img :src="item" alt="" width="200px" height="120px">
         </div>
       </li>
     </ul>
@@ -76,9 +76,6 @@ export default {
         margin-right: 10px;
         margin-top: 10px;
         border: 1px solid #ddd;
-        .item-name{
-          display: inline-block;
-        }
       }
     }
   }
