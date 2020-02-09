@@ -53,6 +53,7 @@ export default {
     .container{
       padding-top: 10px;
       height: 100%;
+      background: #fff;
       .el-row{
         height: 100%;
         .el-col{

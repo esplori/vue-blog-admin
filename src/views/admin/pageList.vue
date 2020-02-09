@@ -1,9 +1,16 @@
 <template>
   <div class="page-list">
-    <el-button type="primary" @click="insertPage" size="small">新增文章</el-button>
+    <div class="handle">
+      <el-button type="primary" @click="insertPage">新增文章</el-button>
+      <el-button type="primary" @click="multipleDel">批量删除</el-button>
+    </div>
     <el-table
       :data="list"
       style="width: 100%">
+      <el-table-column
+        type="selection"
+        width="55">
+      </el-table-column>
       <el-table-column
         prop="title"
         label="标题">
@@ -89,6 +96,9 @@ export default {
 <style scoped lang="less">
 .page-list{
   width: 100%;
+  .handle{
+    padding: 10px 0;
+  }
   .content-item{
     font-size: 18px;
     text-align: left;
