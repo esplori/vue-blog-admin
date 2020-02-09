@@ -1,7 +1,12 @@
 <template>
   <div class="imageManage">
     <ul>
-      <li v-for="(item,index) in list" :key="index">{{item}}</li>
+      <li v-for="(item,index) in list" :key="index">
+        <div>
+          <img :src="item" alt="">
+          <dir>{{item}}</dir>
+        </div>
+      </li>
     </ul>
   </div>
 </template>
@@ -29,7 +34,11 @@ export default {
     async getList () {
       let res = await getImageListApi({})
       if (res) {
-        this.list = res
+        this.list = res.map(item => {
+          let lastIndex = item.lastIndexOf('/')
+          let newItem = item.slice(lastIndex)
+          return 'uploadFile/' + newItem
+        })
       }
     },
     async del (id) {
