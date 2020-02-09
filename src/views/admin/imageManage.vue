@@ -3,7 +3,7 @@
     <ul>
       <li v-for="(item,index) in list" :key="index">
         <div class="item">
-          <img :src="item" alt="" width="120px">
+          <img :src="item" alt="" width="200px">
         </div>
         <div class="item-name">
           {{item}}
