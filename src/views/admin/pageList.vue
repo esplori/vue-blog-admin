@@ -88,6 +88,8 @@ export default {
     handleCurrentChange (val) {
       this.params.page = val
       this.getList()
+    },
+    multipleDel (condition) {
     }
   }
 }
