@@ -65,6 +65,7 @@ export default {
       }
       .right-content{
         padding-left: 10px;
+        padding-right: 20px;
       }
     }
   }
