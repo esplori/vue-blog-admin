@@ -9,8 +9,8 @@
     </ul>
     <el-dialog
   :visible.sync="dialogVisible"
-  width="100%">
-  <img :src="imgUrl" width="80%">
+  width="80%">
+  <img :src="imgUrl" width="1200px">
   <span slot="footer" class="dialog-footer">
     <el-button @click="dialogVisible = false">取 消</el-button>
     <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
