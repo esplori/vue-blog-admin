@@ -12,7 +12,8 @@ import {delCateApi, getImageListApi} from '@/views/API/admin.js'
 export default {
   data () {
     return {
-      list: []
+      list: [],
+      total: 0
     }
   },
   created () {
@@ -28,8 +29,7 @@ export default {
     async getList () {
       let res = await getImageListApi({})
       if (res) {
-        this.list = res.result
-        this.total = res.total
+        this.list = res
       }
     },
     async del (id) {
