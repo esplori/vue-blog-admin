@@ -10,6 +10,7 @@
     <el-dialog
   :visible.sync="dialogVisible"
   width="80%">
+  <span>图片名称：{{imgUrl}}</span>
   <img :src="imgUrl" width="800px">
   <span slot="footer" class="dialog-footer">
     <el-button @click="dialogVisible = false">取 消</el-button>
