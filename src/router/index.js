@@ -7,6 +7,7 @@ import detail from '@/views/home/detail'
 import admin from '@/views/admin/index'
 import pageList from '@/views/admin/pageList'
 import cateList from '@/views/admin/cateList'
+import imageManage from '@/views/admin/imageManage'
 
 Vue.use(Router)
 
@@ -37,12 +38,12 @@ export default new Router({
           redirect: 'pageList'
         },
         {
-          path: 'post',
-          component: post
-        },
-        {
           path: 'pageList',
           component: pageList
+        },
+        {
+          path: 'post',
+          component: post
         },
         {
           path: 'edit',
@@ -51,6 +52,10 @@ export default new Router({
         {
           path: 'cate',
           component: cateList
+        },
+        {
+          path: 'imageManage',
+          component: imageManage
         }
       ]
     }
