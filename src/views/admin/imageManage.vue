@@ -2,9 +2,11 @@
   <div class="imageManage">
     <ul>
       <li v-for="(item,index) in list" :key="index">
-        <div>
-          <img :src="item" alt="">
-          <dir>{{item}}</dir>
+        <div class="item">
+          <img :src="item" alt="" width="120px">
+        </div>
+        <div class="item-name">
+          {{item}}
         </div>
       </li>
     </ul>
@@ -69,5 +71,18 @@ export default {
 <style scoped lang="less">
   .imageManage {
     width: 100%;
+    ul {
+      li {
+        width: 200px;
+        height: 120px;
+        display: inline-block;
+        margin-right: 10px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        .item-name{
+          display: inline-block;
+        }
+      }
+    }
   }
 </style>
