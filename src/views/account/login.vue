@@ -1,15 +1,16 @@
 <template>
   <div class="index">
-    <el-form label-width="80px" :model="form">
-      <el-form-item label="账号">
+    <el-form label-width="60px" :model="form">
+      <h2 style="text-align:center;padding: 20px 0;">用户登录</h2>
+      <el-form-item label="账号:">
         <el-input v-model="form.username"></el-input>
       </el-form-item>
-      <el-form-item label="密码">
+      <el-form-item label="密码:">
         <el-input v-model="form.password" type="password"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button @click="login" type="primary">登录</el-button>
-        <el-button @click="register" type="warning">注册</el-button>
+        <el-button @click="login" type="primary" style="width:100%">登录</el-button>
+        <!-- <el-button @click="register" type="warning">注册</el-button> -->
       </el-form-item>
     </el-form>
   </div>
@@ -42,7 +43,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .index {
-    width: 20%;
-    margin: 100px auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
