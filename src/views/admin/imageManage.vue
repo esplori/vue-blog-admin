@@ -3,10 +3,19 @@
     <ul>
       <li v-for="(item,index) in list" :key="index">
         <div class="item">
-          <img :src="item" alt="" width="200px" height="120px">
+          <img :src="item" alt="" width="200px" height="120px" @click="previewImage(item)">
         </div>
       </li>
     </ul>
+    <el-dialog
+  :visible.sync="dialogVisible"
+  width="50%">
+  <img :src="imgUrl">
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+  </span>
+</el-dialog>
   </div>
 </template>
 
@@ -17,7 +26,9 @@ export default {
   data () {
     return {
       list: [],
-      total: 0
+      total: 0,
+      dialogVisible: false,
+      imgUrl: ''
     }
   },
   created () {
@@ -60,6 +71,10 @@ export default {
     handleCurrentChange (val) {
       this.params.page = val
       this.getList()
+    },
+    previewImage (url) {
+      this.dialogVisible = true
+      this.imgUrl = url
     }
   }
 }
