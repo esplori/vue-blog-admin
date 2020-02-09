@@ -46,3 +46,8 @@ export async function insertCateApi (data) {
   const options = {}
   return post(url, data, options)
 }
+export async function getImageListApi (data) {
+  const url = `${contextPath}/pages/getImageList`
+  const options = {}
+  return post(url, data, options)
+}
