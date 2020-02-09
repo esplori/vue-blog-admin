@@ -1,6 +1,6 @@
 <template>
   <div class="page-list">
-    <el-button type="primary" @click="insertCate" size="small">新增分类</el-button>
+    <el-button type="primary" @click="insertCate">新增分类</el-button>
     <el-table
       :data="list"
       style="width: 100%">
