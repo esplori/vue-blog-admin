@@ -48,7 +48,7 @@ export default {
         this.list = res.map(item => {
           let lastIndex = item.lastIndexOf('/')
           let newItem = item.slice(lastIndex)
-          return 'uploadFile/' + newItem
+          return 'uploadFile' + newItem
         })
       }
     },
