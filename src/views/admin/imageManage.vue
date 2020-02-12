@@ -7,8 +7,7 @@
           multiple
           :headers="headers"
           :limit="3"
-          :on-success="handleSuccess"
-          :file-list="fileList">
+          :on-success="handleSuccess">
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
     </div>
