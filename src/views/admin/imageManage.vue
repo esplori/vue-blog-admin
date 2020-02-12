@@ -5,6 +5,7 @@
           class="upload-demo"
           action="/bootService/pages/upload"
           multiple
+          :show-file-list="false"
           :headers="headers"
           :limit="3"
           :on-success="handleSuccess">
