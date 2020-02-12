@@ -51,3 +51,8 @@ export async function getImageListApi (data) {
   const options = {}
   return post(url, data, options)
 }
+export async function delFileApi (data) {
+  const url = `${contextPath}/pages/delFile`
+  const options = {}
+  return post(url, data, options)
+}

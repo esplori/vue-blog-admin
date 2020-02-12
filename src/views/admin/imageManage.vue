@@ -15,13 +15,14 @@
   <span slot="footer" class="dialog-footer">
     <el-button @click="dialogVisible = false">取 消</el-button>
     <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+    <el-button type="danger" @click="delFile(imgUrl)">删除</el-button>
   </span>
 </el-dialog>
   </div>
 </template>
 
 <script>
-import {delCateApi, getImageListApi} from '@/views/API/admin.js'
+import {delFileApi, getImageListApi} from '@/views/API/admin.js'
 
 export default {
   data () {
@@ -48,22 +49,16 @@ export default {
         this.list = res.map(item => {
           let lastIndex = item.lastIndexOf('/')
           let newItem = item.slice(lastIndex)
-          return 'uploadFile' + newItem
+          return '/uploadFile' + newItem
         })
       }
     },
-    async del (id) {
-      let res = await delCateApi({id: id})
+    async delFile (id) {
+      let res = await delFileApi({id: id})
       if (res) {
         this.$message.success('删除成功')
         this.getList()
       }
-    },
-    /**
-     * 编辑
-     */
-    edit (row) {
-      this.$set(row, 'disabled', !row.disabled)
     },
     handleSizeChange (val) {
       this.params.pageSize = val
