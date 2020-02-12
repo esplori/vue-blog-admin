@@ -15,21 +15,6 @@
       <el-form-item>
         <el-button @click="submit" type="primary">确定</el-button>
       </el-form-item>
-      <el-form-item>
-        <el-upload
-          class="upload-demo"
-          action="/bootService/pages/upload"
-          multiple
-          :headers="headers"
-          :limit="3"
-          :on-success="handleSuccess"
-          :file-list="fileList">
-          <el-button size="small" type="primary">点击上传</el-button>
-        </el-upload>
-      </el-form-item>
-      <!-- <el-form-item>
-        <el-button @click="download">下载</el-button>
-      </el-form-item> -->
     </el-form>
   </div>
 </template>
@@ -59,7 +44,6 @@ export default {
         cate: ''
       },
       cateList: [],
-      fileList: [],
       init: {
         language_url: '/static/tinymce/langs/zh_CN.js',
         language: 'zh_CN',
@@ -79,19 +63,6 @@ export default {
     tinymce.init({})
   },
   computed: {
-    /**
-     * 添加token
-     */
-    headers () {
-      let userinfo = localStorage.getItem('userInfo')
-      if (userinfo) {
-        userinfo = JSON.parse(userinfo)
-        return {
-          Authorization: userinfo.token
-        }
-      }
-      return null
-    }
   },
   created () {
     let id = this.$route.query.id
@@ -136,9 +107,6 @@ export default {
     },
     download () {
       this.ajaxPostLoadFile('/pages/download', '11')
-    },
-    handleSuccess (response, file, fileList) {
-      this.imgUrl = '/bootService' + response
     },
     ajaxPostLoadFile (url, val) {
       var form = document.createElement('form')
