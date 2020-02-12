@@ -13,7 +13,7 @@ export default {
   data () {
     return {
       menus: [
-        {name: '首页', path: '/index'}
+        {name: '查看站点', path: '/index'}
       ]
     }
   },
@@ -30,5 +30,6 @@ export default {
     color: #71777c;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #ddd;
   }
 </style>

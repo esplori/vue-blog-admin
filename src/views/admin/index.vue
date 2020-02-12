@@ -9,13 +9,21 @@
                    :collapse="isCollapse" :router="true" :unique-opened="false">
             <el-submenu index="1">
               <template slot="title">
-                <i class="el-icon-location"></i>
                 <span slot="title">控制台</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="/admin/pageList">文章管理</el-menu-item>
-                <el-menu-item index="/admin/cate">分类管理</el-menu-item>
-                <el-menu-item index="/admin/imageManage">图片管理</el-menu-item>
+                <el-menu-item index="/admin/pageList">
+                  <i class="el-icon-setting"></i>
+                  文章管理
+                </el-menu-item>
+                <el-menu-item index="/admin/cate">
+                 <i class="el-icon-s-operation"></i>
+                  分类管理
+                </el-menu-item>
+                <el-menu-item index="/admin/imageManage">
+                  <i class="el-icon-picture-outline"></i>
+                  图片管理
+                </el-menu-item>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>
