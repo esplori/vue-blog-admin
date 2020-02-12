@@ -56,6 +56,7 @@ export default {
     async delFile (id) {
       let res = await delFileApi({id})
       if (res) {
+        this.dialogVisible = false
         this.$message.success('删除成功')
         this.getList()
       }
