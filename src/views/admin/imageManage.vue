@@ -1,5 +1,17 @@
 <template>
   <div class="imageManage">
+    <div>
+      <el-upload
+          class="upload-demo"
+          action="/bootService/pages/upload"
+          multiple
+          :headers="headers"
+          :limit="3"
+          :on-success="handleSuccess"
+          :file-list="fileList">
+          <el-button size="small" type="primary">点击上传</el-button>
+        </el-upload>
+    </div>
     <ul>
       <li v-for="(item,index) in list" :key="index">
         <div class="item">
@@ -30,7 +42,23 @@ export default {
       list: [],
       total: 0,
       dialogVisible: false,
-      imgUrl: ''
+      imgUrl: '',
+      fileList: []
+    }
+  },
+  computed: {
+    /**
+     * 添加token
+     */
+    headers () {
+      let userinfo = localStorage.getItem('userInfo')
+      if (userinfo) {
+        userinfo = JSON.parse(userinfo)
+        return {
+          Authorization: userinfo.token
+        }
+      }
+      return null
     }
   },
   created () {
@@ -60,6 +88,9 @@ export default {
         this.$message.success('删除成功')
         this.getList()
       }
+    },
+    handleSuccess (response, file, fileList) {
+      this.getList()
     },
     handleSizeChange (val) {
       this.params.pageSize = val
