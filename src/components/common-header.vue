@@ -25,7 +25,8 @@ export default {
   data () {
     return {
       menuList: [
-        {name: '首页', url: 'index'}
+        {name: '首页', url: 'index'},
+        {name: '发现', url: 'finder'},
       ]
     }
   },

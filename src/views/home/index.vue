@@ -1,8 +1,8 @@
 <template>
   <div class="index-list">
-    <commenHeader @changeCate="changeCate"></commenHeader>
+    <commenHeader></commenHeader>
     <div class="index-content">
-      <contentList :cate='cate'></contentList>
+      <contentList></contentList>
     </div>
   </div>
 </template>
@@ -11,8 +11,6 @@
 export default {
   data () {
     return {
-      // 分类
-      cate: 1
     }
   },
   components: {
@@ -23,12 +21,6 @@ export default {
   created () {
   },
   methods: {
-    /**
-     * 切换分类
-     */
-    changeCate (cate) {
-      this.cate = cate
-    }
   }
 }
 </script>
