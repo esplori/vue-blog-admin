@@ -1,12 +1,17 @@
 <template>
   <div id="app">
     <router-view/>
+    <commonFooter></commonFooter>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  // 子组件
+  components: {
+    commonFooter: () => import('./components/footer')
+  }
 }
 </script>
 
