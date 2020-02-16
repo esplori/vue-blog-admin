@@ -5,7 +5,7 @@
     <div class="header-content">
       <div class="menu-list">
           <ul class="cate-list">
-            <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.id)">{{item.name}}</li>
+            <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.url)">{{item.name}}</li>
           </ul>
           <userInfo></userInfo>
       </div>
@@ -13,7 +13,6 @@
   </div>
 </template>
 <script>
-import {getCateApi} from '@/views/API/admin.js'
 export default {
   // 子组件
   components: {
@@ -25,9 +24,7 @@ export default {
   data () {
     return {
       menuList: [
-        {name: '首页', url: 'index'},
-        {name: '发现', url: 'finder'},
-        {name: '后台管理', url: 'admin'}
+        {name: '首页', url: 'index'}
       ]
     }
   },
@@ -45,18 +42,11 @@ export default {
         this.menuList = this.menuList.slice(0, this.menuList.length - 1)
       }
     }
-    // this.getCate()
   },
   // 当前定义的函数
   methods: {
-    async getCate () {
-      let res = await getCateApi({})
-      if (res) {
-        this.menuList = res.result || []
-      }
-    },
-    handleSelect (cate) {
-      this.$emit('changeCate', cate)
+    handleSelect (url) {
+      this.$router.push({path: url})
     }
   }
 }
