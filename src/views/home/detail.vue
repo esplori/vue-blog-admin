@@ -1,6 +1,6 @@
 <template>
   <div class="home-detail">
-    <detailHeader></detailHeader>
+    <commenHeader></commenHeader>
     <div class="detail-content">
       <el-row>
         <el-col :span='18'>
@@ -26,7 +26,7 @@ export default {
     }
   },
   components: {
-    detailHeader: () => import('@/components/detail-header'),
+    commenHeader: () => import('@/components/common-header.vue'),
     right: () => import('./comp/right')
   },
   created () {

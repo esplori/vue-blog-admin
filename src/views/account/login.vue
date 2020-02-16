@@ -44,6 +44,7 @@ export default {
 <style scoped>
   .index {
     height: 100%;
+    padding-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
