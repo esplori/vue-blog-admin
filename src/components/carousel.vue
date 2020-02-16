@@ -2,9 +2,9 @@
 */
 <template>
   <div class='carousel-container'>
-      <el-carousel :interval="5000" arrow="always" :height="270">
+      <el-carousel :interval="5000" arrow="always" :height="320">
         <el-carousel-item v-for="(item, index) in list" :key="index">
-          <img :src="item.url" alt="" width="822px">
+          <img :src="item.url" alt="" height="320px">
         </el-carousel-item>
       </el-carousel>
   </div>
