@@ -4,8 +4,10 @@
     <div class="detail-content">
       <el-row>
         <el-col :span='18'>
-            <div class="title">{{form.title}}</div>
-            <div class="content" v-html="form.content"></div>
+            <div class="detail">
+              <div class="title">{{form.title}}</div>
+              <div class="content" v-html="form.content"></div>
+            </div>
         </el-col>
         <el-col :span="6">
             <right></right>
@@ -48,8 +50,11 @@ export default {
     .detail-content{
       max-width: 1150px;
       margin: 10px auto;
-      background: #fff;
-      padding: 20px;
+      padding: 5px 20px;
+      .detail{
+        background: #fff;
+        padding: 20px;
+      }
       .title {
         font-size: 30px;
         margin-bottom: 20px;
