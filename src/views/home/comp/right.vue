@@ -28,9 +28,11 @@ export default {
 
 <style scoped lang="less">
   .right-detail {
-    padding:  10px;
+    margin: 0 15px;
+    padding:20px;
     width: 100%;
     text-align: left;
+    background:#fff;
     div{
       padding: 20px 0
     }
