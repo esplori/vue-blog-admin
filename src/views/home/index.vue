@@ -2,14 +2,7 @@
   <div class="index-list">
     <commenHeader @changeCate="changeCate"></commenHeader>
     <div class="index-content">
-      <el-row>
-        <el-col :span='18'>
-          <contentList :cate='cate'></contentList>
-        </el-col>
-        <el-col :span="6">
-            <right></right>
-        </el-col>
-      </el-row>
+      <contentList :cate='cate'></contentList>
     </div>
   </div>
 </template>
@@ -25,8 +18,7 @@ export default {
   components: {
     // 公共头部
     commenHeader: () => import('@/components/common-header.vue'),
-    contentList: () => import('./comp/content.vue'),
-    right: () => import('./comp/right.vue')
+    contentList: () => import('./comp/content.vue')
   },
   created () {
   },
