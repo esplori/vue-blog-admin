@@ -4,7 +4,7 @@
   <div class='carousel-container'>
       <el-carousel :interval="5000" arrow="always" :height="270">
         <el-carousel-item v-for="(item, index) in list" :key="index">
-          <img :src="item" alt="">
+          <img :src="item.url" alt="">
         </el-carousel-item>
       </el-carousel>
   </div>
