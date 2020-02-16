@@ -1,5 +1,8 @@
 <template>
   <div class="content-detail">
+    <div class="cateList">
+      <div v-for="(item, index) in cateList" :key="index" class="cate-item">{{item.name}}</div>
+    </div>
     <div v-for="(item,index) in list" :key="index" class="list-item">
             <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
           <div class="content">{{item.content | filterContent}}</div>
@@ -21,6 +24,7 @@
 
 <script>
 import {getListApi} from '@/views/API/home.js'
+import {getCateApi} from '@/views/API/admin.js'
 export default {
   data () {
     return {
@@ -30,7 +34,8 @@ export default {
         pageSize: 10,
         cate: ''
       },
-      total: 0
+      total: 0,
+      cateList: []
     }
   },
   watch: {
@@ -56,9 +61,16 @@ export default {
     }
   },
   created () {
+    this.getCate()
     this.getList()
   },
   methods: {
+    async getCate () {
+      let res = await getCateApi({})
+      if (res) {
+        this.cateList = res.result || []
+      }
+    },
     async getList () {
       let res = await getListApi(this.params)
       if (res) {
@@ -85,6 +97,17 @@ export default {
 <style scoped lang="less">
   .content-detail {
     padding-right: 20px;
+    .cateList{
+      display: flex;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 10px;
+      .cate-item{
+        padding: 0px 20px;
+        font-size: 14px;
+        color: #999;
+        border-right: 1px solid #f0f0f0;
+      }
+    }
     .list-item {
         margin-bottom: 20px;
         padding-bottom: 20px;
