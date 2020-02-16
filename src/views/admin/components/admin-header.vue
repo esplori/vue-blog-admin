@@ -26,6 +26,7 @@ export default {
 <style scoped lang="less">
   .admin-header {
     padding: 20px;
+    margin-bottom: 10px;
     background: #fff;
     color: #71777c;
     display: flex;

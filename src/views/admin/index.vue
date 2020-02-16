@@ -1,7 +1,6 @@
 <!--后台管理首页-->
 <template>
   <div class="admin-index">
-    <adminHeader></adminHeader>
     <div class="container">
       <el-row>
         <el-col :span="4">
@@ -30,6 +29,7 @@
         </el-col>
         <el-col :span="20">
           <div class="right-content">
+            <adminHeader></adminHeader>
             <router-view></router-view>
           </div>
         </el-col>
