@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       menuList: [
-        {label: '首页', url: 'index'}
+        {name: '首页', url: 'index'}
       ]
     }
   },
@@ -43,7 +43,7 @@ export default {
         this.menuList = this.menuList.slice(0, this.menuList.length - 1)
       }
     }
-    this.getCate()
+    // this.getCate()
   },
   // 当前定义的函数
   methods: {
