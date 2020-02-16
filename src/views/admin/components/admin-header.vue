@@ -31,6 +31,6 @@ export default {
     color: #71777c;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #f1f1f1;
   }
 </style>
