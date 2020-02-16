@@ -27,6 +27,7 @@ export default {
       menuList: [
         {name: '首页', url: 'index'},
         {name: '发现', url: 'finder'},
+        {name: '后台管理', url: 'admin'}
       ]
     }
   },
