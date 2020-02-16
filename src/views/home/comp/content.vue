@@ -1,7 +1,7 @@
 <template>
   <div class="content-detail">
     <div class="cateList">
-      <div v-for="(item, index) in cateList" :key="index" class="cate-item">{{item.name}}</div>
+      <div v-for="(item, index) in cateList" :key="index" class="cate-item" @click="handleCate(item.id)">{{item.name}}</div>
     </div>
     <div v-for="(item,index) in list" :key="index" class="list-item">
             <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
@@ -39,15 +39,8 @@ export default {
     }
   },
   watch: {
-    cate (val) {
-      this.params.cate = parseInt(val)
-      this.getList()
-    }
   },
   props: {
-    cate: {
-      default: 1
-    }
   },
   components: {
   },
@@ -65,6 +58,10 @@ export default {
     this.getList()
   },
   methods: {
+    handleCate (cate) {
+      this.params.cate = parseInt(cate)
+      this.getList()
+    },
     async getCate () {
       let res = await getCateApi({})
       if (res) {
@@ -100,12 +97,14 @@ export default {
     .cateList{
       display: flex;
       border-bottom: 1px solid #f0f0f0;
-      padding-bottom: 10px;
+      padding-bottom: 15px;
+      margin-bottom: 10px;
       .cate-item{
-        padding: 0px 20px;
+        padding: 0px 25px;
         font-size: 14px;
         color: #999;
         border-right: 1px solid #f0f0f0;
+        cursor: pointer;
       }
     }
     .list-item {
