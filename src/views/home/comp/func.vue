@@ -37,7 +37,7 @@ export default {
     padding-top: 20px;
     width: 100%;
     text-align: left;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #f1f1f1;
     .title{
       font-size: 18px;
       padding-bottom: 10px;

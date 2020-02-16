@@ -118,7 +118,7 @@ export default {
         display: inline-block;
         margin-right: 10px;
         margin-top: 10px;
-        border: 1px solid #ddd;
+        border: 1px solid #f1f1f1;
       }
     }
   }
