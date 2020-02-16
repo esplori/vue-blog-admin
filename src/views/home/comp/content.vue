@@ -67,7 +67,6 @@ export default {
       }
     },
     getDetail (id) {
-      // this.$router.push({path: 'detail', query: {id: id}})
       // 详情另开页面
       window.open('/#/detail?id=' + id)
     },
@@ -88,7 +87,8 @@ export default {
     padding-right: 20px;
     .list-item {
         margin-bottom: 20px;
-
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f0f0f0;
         .title {
           font-size: 18px;
           font-weight: 600;
@@ -106,9 +106,11 @@ export default {
           margin: 0 0 8px;
           font-size: 13px;
           color: #999;
+          line-height: 24px;
         }
 
         .create-date {
+          padding-top: 5px;
           font-size: 13px;
           color: #999;
         }
