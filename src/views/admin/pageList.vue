@@ -98,9 +98,6 @@ export default {
 <style scoped lang="less">
 .page-list{
   width: 100%;
-  .handle{
-    padding: 10px 0;
-  }
   .content-item{
     font-size: 18px;
     text-align: left;
