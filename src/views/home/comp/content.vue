@@ -3,7 +3,7 @@
     <!-- <div class="cateList">
       <div v-for="(item, index) in cateList" :key="index" class="cate-item" @click="handleCate(item.id)">{{item.name}}</div>
     </div> -->
-    <carousel></carousel>
+    <!-- <carousel></carousel> -->
     <div v-for="(item,index) in list" :key="index" class="list-item">
             <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
           <div class="content">{{item.content | filterContent}}</div>
