@@ -6,6 +6,8 @@
       <div class="menu-list">
           <ul class="cate-list">
             <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.url)">{{item.name}}</li>
+            <li><el-input placeholder="搜索"></el-input></li>
+            <li @click="toAdmin">后台管理</li>
           </ul>
           <userInfo></userInfo>
       </div>
@@ -47,6 +49,9 @@ export default {
   methods: {
     handleSelect (url) {
       this.$router.push({path: url})
+    },
+    toAdmin (condition) {
+      this.$router.push({path: 'admin'})
     }
   }
 }

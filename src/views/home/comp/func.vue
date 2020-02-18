@@ -1,32 +1,38 @@
 <template>
   <div class="func">
-    <div class="title">功能</div>
+    <div class="title">推荐阅读</div>
     <div class="func-item">
-      <div @click="toLogin">登录</div>
-      <!-- <div>注册</div> -->
-      <div @click="toAdmin">后台管理</div>
+      <ul>
+        <li v-for="(item,index) in list" :key=index>{{item.title}}</li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
+import {getListApi} from '@/views/API/home.js'
 export default {
   data () {
     return {
-      form: {}
+      list: [],
+      params: {
+        page: 1,
+        pageSize: 10,
+        cate: ''
+      }
     }
   },
   components: {
-    commenHeader: () => import('@/components/common-header.vue')
   },
   created () {
+    this.getList()
   },
   methods: {
-    toAdmin (condition) {
-      this.$router.push({path: 'admin'})
-    },
-    toLogin (condition) {
-      this.$router.push({path: 'login'})
+    async getList () {
+      let res = await getListApi(this.params)
+      if (res) {
+        this.list = res.result
+      }
     }
   }
 }
@@ -37,17 +43,25 @@ export default {
     padding-top: 20px;
     width: 100%;
     text-align: left;
-    border-top: 1px solid #f1f1f1;
     .title{
       font-size: 18px;
       padding-bottom: 10px;
       font-weight: bold;
+      border-bottom: 1px solid #f1f1f1;
     }
     .func-item{
-        div{
-          font-size: 14px;
-          padding: 3px 0;
-          cursor: pointer;
+      padding: 10px 0;
+        ul{
+          li{
+            font-size: 14px;
+            padding: 3px 0;
+            cursor: pointer;
+            margin-bottom: 5px;
+            text-overflow: ellipsis
+          }
+          li:hover{
+            text-decoration: underline;
+          }
         }
       }
   }
