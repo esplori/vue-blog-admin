@@ -3,7 +3,7 @@
     <div v-for="(item,index) in list" :key="index" class="list-item">
             <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
           <div class="content">{{item.content | filterContent}}</div>
-            <div class="create-date">{{item.createDate}}</div>
+            <div class="create-date">{{item.createDate | filterDate}}</div>
           </div>
         <div class="pagination-box" style="text-align: center;margin: 20px auto;">
           <el-pagination
@@ -49,6 +49,13 @@ export default {
     filterContent (str) {
       let val = str.replace(/<[^>]+>/g, '').replace(/&lt/g, '').replace(/&gt/g, '').replace(/&nbsp/g, '')
       return val.length >= 120 ? val.slice(0, 120) + '...' : val
+    },
+    /**
+     * 格式化日期，只取年月日
+     */
+    filterDate (val) {
+      let date = new Date(val)
+      return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDay()
     }
   },
   created () {
