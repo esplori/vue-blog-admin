@@ -62,8 +62,8 @@ export default {
       let date = new Date(val || new Date())
       return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDay()
     },
-    randomNum() {
-      return Math.ceil(Math.random()*1000);  
+    randomNum () {
+      return Math.ceil(Math.random() * 1000)
     }
   },
   created () {
