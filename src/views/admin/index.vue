@@ -59,6 +59,11 @@ export default {
 
   .admin-index{
     height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     .container{
       padding-top: 10px;
       height: 100%;
