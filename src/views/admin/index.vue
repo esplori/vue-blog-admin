@@ -30,7 +30,7 @@
         <el-col :span="20">
           <div class="right-content">
             <adminHeader></adminHeader>
-            <router-view></router-view>
+            <router-view style="overflow-y: auto;"></router-view>
           </div>
         </el-col>
       </el-row>

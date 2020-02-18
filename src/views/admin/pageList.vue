@@ -98,7 +98,6 @@ export default {
 <style scoped lang="less">
 .page-list{
   width: 100%;
-  overflow-y: auto;
   .content-item{
     font-size: 18px;
     text-align: left;
