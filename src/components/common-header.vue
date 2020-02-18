@@ -7,7 +7,7 @@
       <div class="menu-list">
           <ul class="cate-list">
             <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.url)">{{item.name}}</li>
-            <li><el-input placeholder="搜索"></el-input></li>
+            <li><el-input placeholder="搜索" v-model="searchKey"></el-input></li>
           </ul>
           <userInfo></userInfo>
       </div>
@@ -26,8 +26,11 @@ export default {
   data () {
     return {
       menuList: [
-        {name: '首页', url: 'index'}
-      ]
+        {name: '首页', url: 'index'},
+        {name: '消息', url: ''},
+        {name: '活动', url: ''}
+      ],
+      searchKey: ''
     }
   },
   // 当前定义的计算属性
@@ -48,7 +51,7 @@ export default {
   // 当前定义的函数
   methods: {
     handleSelect (url) {
-      this.$router.push({path: url})
+      url && this.$router.push({path: url})
     }
   }
 }
@@ -79,7 +82,7 @@ export default {
           font-size: 14px;
           li{
             display: inline-block;
-            padding: 5px 30px;
+            padding: 5px 25px;
             font-weight: 400;
             cursor: pointer;
           }
