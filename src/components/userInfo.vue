@@ -33,6 +33,8 @@ export default {
       this.$router.push({path: '/login'})
     },
     toLogin (condition) {
+      localStorage.clear()
+      sessionStorage.clear()
       this.$router.push({path: 'login'})
     }
   }
