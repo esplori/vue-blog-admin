@@ -1,13 +1,16 @@
 <template>
   <div class="userInfo">
-    <el-dropdown v-if="userInfo" @command="handleCommand">
-      <span class="el-dropdown-link">
-        {{userInfo.username}}<i class="el-icon-arrow-down el-icon--right"></i>
-      </span>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item divided>退出</el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
+    <div v-if="userInfo">
+      <span @click="toAdmin" class="to-admin">后台管理</span>
+      <el-dropdown @command="handleCommand">
+        <span class="el-dropdown-link">
+          {{userInfo.username}}<i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item divided>退出</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
     <span v-else @click="toLogin">登录</span>
   </div>
 </template>
@@ -36,14 +39,22 @@ export default {
       localStorage.clear()
       sessionStorage.clear()
       this.$router.push({path: 'login'})
+    },
+    toAdmin (condition) {
+      this.$router.push({path: 'admin'})
     }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .userInfo{
   display: flex;
   align-items: center;
+  font-size: 14px;
+  .to-admin{
+    display: inline-block;
+    padding-right: 20px;
+  }
 }
 </style>

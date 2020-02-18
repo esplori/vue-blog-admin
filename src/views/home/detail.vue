@@ -59,7 +59,7 @@ export default {
         font-size: 30px;
         margin-bottom: 20px;
         color: #404040;
-        font-weight: 400;
+        font-weight: 700;
       }
       .content {
         font-size: 16px;
