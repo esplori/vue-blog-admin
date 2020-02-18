@@ -8,6 +8,7 @@
         <el-dropdown-item divided>退出</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
+    <span v-else @click="toLogin">登录</span>
   </div>
 </template>
 
@@ -30,6 +31,9 @@ export default {
   methods: {
     handleCommand () {
       this.$router.push({path: '/login'})
+    },
+    toLogin (condition) {
+      this.$router.push({path: 'login'})
     }
   }
 }

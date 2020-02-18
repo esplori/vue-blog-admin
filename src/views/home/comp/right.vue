@@ -1,7 +1,5 @@
 <template>
   <div class="right-detail">
-    <search></search>
-    <!-- <div>分类</div> -->
     <func></func>
   </div>
 </template>
@@ -15,8 +13,6 @@ export default {
     }
   },
   components: {
-    commenHeader: () => import('@/components/common-header.vue'),
-    search: () => import('./search.vue'),
     func: () => import('./func.vue')
   },
   created () {
