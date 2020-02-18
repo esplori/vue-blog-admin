@@ -32,15 +32,24 @@ export default {
     }
   },
   methods: {
+    /**
+     * 能出
+     */
     handleCommand () {
-      this.$router.push({path: '/login'})
-    },
-    toLogin (condition) {
       localStorage.clear()
       sessionStorage.clear()
+      this.$router.push({path: '/login'})
+    },
+    /**
+     * 登录
+     */
+    toLogin () {
       this.$router.push({path: 'login'})
     },
-    toAdmin (condition) {
+    /**
+     * 后台管理
+     */
+    toAdmin () {
       this.$router.push({path: 'admin'})
     }
   }
@@ -58,6 +67,8 @@ export default {
   }
   .login-in{
     cursor: pointer;
+  }
+  .login-in:hover{
     text-decoration: underline;
   }
 }
