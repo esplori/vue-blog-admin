@@ -1,18 +1,20 @@
 <template>
-  <div class="index">
-    <el-form label-width="60px" :model="form">
+  <div class="login">
+    <div class="login-container">
+      <el-form :model="form">
       <h2 style="text-align:center;padding: 20px 0;">用户登录</h2>
-      <el-form-item label="账号:">
-        <el-input v-model="form.username"></el-input>
+      <el-form-item>
+        <el-input v-model="form.username" placeholder="账号"></el-input>
       </el-form-item>
-      <el-form-item label="密码:">
-        <el-input v-model="form.password" type="password"></el-input>
+      <el-form-item>
+        <el-input v-model="form.password" type="password" placeholder="密码"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button @click="login" type="primary" style="width:100%">登录</el-button>
         <!-- <el-button @click="register" type="warning">注册</el-button> -->
       </el-form-item>
     </el-form>
+    </div>
   </div>
 </template>
 
@@ -41,12 +43,18 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .index {
+<style scoped lang="less">
+  .login {
     height: 100%;
     padding-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    .login-container{
+      width: 300px;
+      background: #fff;
+      padding: 80px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
   }
 </style>
