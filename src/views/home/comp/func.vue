@@ -3,7 +3,10 @@
     <div class="title">推荐阅读</div>
     <div class="func-item">
       <ul>
-        <li v-for="(item,index) in list" :key=index>{{item.title}}</li>
+        <li v-for="(item,index) in list" :key=index>
+          <div>{{item.title}}</div>
+          <div class="title-desc">阅读 {{item.like | randomNum}}</div>
+        </li>
       </ul>
     </div>
   </div>
@@ -26,6 +29,11 @@ export default {
   },
   created () {
     this.getList()
+  },
+  filters: {
+    randomNum () {
+      return Math.ceil(Math.random() * 1000)
+    }
   },
   methods: {
     async getList () {
@@ -62,6 +70,11 @@ export default {
           li:hover{
             text-decoration: underline;
           }
+        }
+        .title-desc{
+          padding: 5px 0;
+          font-size: 12px;
+          color: #969696;
         }
       }
   }

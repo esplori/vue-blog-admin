@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <router-view/>
-    <commonFooter></commonFooter>
+    <!-- copyright -->
+    <!-- <commonFooter></commonFooter> -->
   </div>
 </template>
 
