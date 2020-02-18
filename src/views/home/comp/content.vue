@@ -3,7 +3,7 @@
     <div v-for="(item,index) in list" :key="index" class="list-item">
             <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
           <div class="content">{{item.content | filterContent}}</div>
-            <div class="create-date">{{item.createDate | filterDate}}</div>
+            <div class="create-date"><i class="el-icon-date"></i> {{item.createDate | filterDate}}</div>
           </div>
         <div class="pagination-box" style="text-align: center;margin: 20px auto;">
           <el-pagination

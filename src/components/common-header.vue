@@ -3,11 +3,11 @@
 <template>
   <div class='common-header'>
     <div class="header-content">
+      <div class="logo"><span>FEKLY</span></div>
       <div class="menu-list">
           <ul class="cate-list">
             <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.url)">{{item.name}}</li>
             <li><el-input placeholder="搜索"></el-input></li>
-            <li @click="toAdmin">后台管理</li>
           </ul>
           <userInfo></userInfo>
       </div>
@@ -49,9 +49,6 @@ export default {
   methods: {
     handleSelect (url) {
       this.$router.push({path: url})
-    },
-    toAdmin (condition) {
-      this.$router.push({path: 'admin'})
     }
   }
 }
@@ -67,6 +64,12 @@ export default {
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
+      .logo{
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+      }
       .menu-list {
         display: flex;
         justify-content: space-between;
