@@ -83,6 +83,9 @@ export default {
             font-weight: 400;
             cursor: pointer;
           }
+          li:hover{
+            text-decoration: underline;
+          }
         }
       }
     }

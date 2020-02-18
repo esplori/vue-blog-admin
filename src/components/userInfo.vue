@@ -11,7 +11,7 @@
         </el-dropdown-menu>
       </el-dropdown>
     </div>
-    <span v-else @click="toLogin">登录</span>
+    <span v-else @click="toLogin" class="login-in">登录</span>
   </div>
 </template>
 
@@ -55,6 +55,10 @@ export default {
   .to-admin{
     display: inline-block;
     padding-right: 20px;
+  }
+  .login-in{
+    cursor: pointer;
+    text-decoration: underline;
   }
 }
 </style>
