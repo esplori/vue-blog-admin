@@ -26,14 +26,14 @@ const router = new Router({
     },
     {
       path: '/index',
-      component: index
+      component: index,
+      meta: {
+        title: '首页'
+      }
     },
     {
       path: '/detail',
-      component: detail,
-      meta: {
-        title: '详情'
-      }
+      component: detail
     },
     {
       path: '/admin',
@@ -85,9 +85,10 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   /* 路由发生变化修改页面title */
-  debugger
   if (to.meta.title) {
-    document.title = to.meta.title + ' | ' + '开发指南'
+    document.title = to.meta.title + ' | 开发指南'
+  } else if (to.query.title) {
+    document.title = decodeURIComponent(to.query.title) + ' | 开发指南'
   }
   next()
 })

@@ -3,7 +3,7 @@
     <div class="title">推荐阅读</div>
     <div class="func-item">
       <ul>
-        <li v-for="(item,index) in list" :key=index>
+        <li v-for="(item,index) in list" :key=index @click="getDetail(item)">
           <div>{{item.title}}</div>
           <div class="title-desc">阅读 {{item.views | randomNum}}</div>
         </li>
@@ -45,6 +45,10 @@ export default {
       if (res) {
         this.list = res.result
       }
+    },
+    getDetail (item) {
+      // 详情另开页面
+      window.open('/#/detail?id=' + item.id + '&title=' + encodeURIComponent(item.title))
     }
   }
 }
