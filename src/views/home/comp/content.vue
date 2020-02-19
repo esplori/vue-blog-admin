@@ -1,7 +1,7 @@
 <template>
   <div class="content-detail">
     <div v-for="(item,index) in list" :key="index" class="list-item">
-      <div class="title" @click="getDetail(item.id)">{{item.title}}</div>
+      <div class="title" @click="getDetail(item)">{{item.title}}</div>
       <div class="content">{{item.content | filterContent}}</div>
       <div class="content-desc">
         <span><i class="el-icon-date"></i> {{item.createDate | filterDate}}</span>
@@ -92,9 +92,9 @@ export default {
         this.total = res.total
       }
     },
-    getDetail (id) {
+    getDetail (item) {
       // 详情另开页面
-      window.open('/#/detail?id=' + id)
+      window.open('/#/detail?id=' + item.id + '&title=' + encodeURIComponent(item.title))
     },
     handleSizeChange (val) {
       this.params.pageSize = val
