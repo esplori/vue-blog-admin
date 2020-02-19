@@ -5,7 +5,7 @@
       <ul>
         <li v-for="(item,index) in list" :key=index>
           <div>{{item.title}}</div>
-          <div class="title-desc">阅读 {{item.like | randomNum}}</div>
+          <div class="title-desc">阅读 {{item.views | randomNum}}</div>
         </li>
       </ul>
     </div>
@@ -31,8 +31,12 @@ export default {
     this.getList()
   },
   filters: {
-    randomNum () {
-      return Math.ceil(Math.random() * 1000)
+    randomNum (val) {
+      if (val) {
+        return val
+      } else {
+        return Math.ceil(Math.random() * 1000)
+      }
     }
   },
   methods: {

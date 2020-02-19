@@ -12,6 +12,12 @@
           <el-option v-for="(item,index) in cateList" :key=index :label="item.name" :value="item.id"></el-option>
         </el-select>
       </el-form-item>
+      <el-form-item label="浏览量：">
+        <el-input v-model.number="form.views" type="number"></el-input>
+      </el-form-item>
+      <el-form-item label="收藏量：">
+        <el-input v-model.number="form.likes" type="number"></el-input>
+      </el-form-item>
       <el-form-item>
         <el-button @click="submit" type="primary">确定</el-button>
       </el-form-item>
@@ -41,7 +47,9 @@ export default {
         id: '',
         title: '',
         content: '',
-        cate: ''
+        cate: '',
+        views: 0,
+        likes: 0
       },
       cateList: [],
       init: {
