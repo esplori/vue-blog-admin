@@ -59,7 +59,7 @@ export default {
      * 格式化日期，只取年月日
      */
     filterDate (val) {
-      let date = new Date(val || new Date())
+      let date = new Date(val.replace(/-/g, '/') || new Date())
       return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDay()
     },
     randomNum () {
