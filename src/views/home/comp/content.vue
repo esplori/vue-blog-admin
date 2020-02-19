@@ -26,7 +26,6 @@
 
 <script>
 import {getListApi} from '@/views/API/home.js'
-import {getCateApi} from '@/views/API/admin.js'
 export default {
   data () {
     return {
@@ -36,8 +35,7 @@ export default {
         pageSize: 10,
         cate: ''
       },
-      total: 0,
-      cateList: []
+      total: 0
     }
   },
   watch: {
@@ -45,7 +43,6 @@ export default {
   props: {
   },
   components: {
-    carousel: () => import('@/components/carousel')
   },
   filters: {
     /**
@@ -71,19 +68,12 @@ export default {
     }
   },
   created () {
-    this.getCate()
     this.getList()
   },
   methods: {
     handleCate (cate) {
       this.params.cate = parseInt(cate)
       this.getList()
-    },
-    async getCate () {
-      let res = await getCateApi({})
-      if (res) {
-        this.cateList = res.result || []
-      }
     },
     async getList () {
       let res = await getListApi(this.params)
@@ -112,19 +102,6 @@ export default {
   .content-detail {
     padding: 20px;
     background: #fff;
-    .cateList{
-      display: flex;
-      border-bottom: 1px solid #f0f0f0;
-      padding-bottom: 15px;
-      margin-bottom: 10px;
-      .cate-item{
-        padding: 0px 25px;
-        font-size: 14px;
-        color: #999;
-        border-right: 1px solid #f0f0f0;
-        cursor: pointer;
-      }
-    }
     .list-item {
         margin-bottom: 20px;
         padding-bottom: 20px;

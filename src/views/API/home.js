@@ -11,3 +11,8 @@ export async function getDetailApi (data) {
   const options = {}
   return get(Url, data, options)
 }
+export async function searchApi (data) {
+  const Url = `${contextPath}/pages/search`
+  const options = {}
+  return get(Url, data, options)
+}
