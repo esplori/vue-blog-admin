@@ -20,7 +20,7 @@ function endLoading () {
 }
 
 axios.defaults.timeout = 15000
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 export function showFullScreenLoading () {
   if (needLoadingRequestCount === 0) {
@@ -40,10 +40,11 @@ export function tryHideFullScreenLoading () {
 // 在请求或响应被 then 或 catch 处理前拦截它们。
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
+  debugger
   let userinfo = localStorage.getItem('userInfo')
   if (userinfo) {
     userinfo = JSON.parse(userinfo)
-    axios.defaults.headers.common['Authorization'] = userinfo.token
+    config.headers.common['Authorization'] = userinfo.token
   }
   // 在发送请求之前做些什么
   return config
