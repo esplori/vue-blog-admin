@@ -27,10 +27,10 @@
             </el-submenu>
           </el-menu>
         </el-col>
-        <el-col :span="20">
+        <el-col :span="20" style="overflow-y: auto!important;">
           <div class="right-content">
             <adminHeader></adminHeader>
-            <router-view style="overflow-y: auto;"></router-view>
+            <router-view></router-view>
           </div>
         </el-col>
       </el-row>
@@ -65,7 +65,6 @@ export default {
     top: 0;
     bottom: 0;
     .container{
-      padding-top: 10px;
       height: 100%;
       background: #fff;
       .el-row{
@@ -80,6 +79,7 @@ export default {
       .right-content{
         padding-left: 10px;
         padding-right: 20px;
+        padding-bottom: 20px;
       }
     }
   }

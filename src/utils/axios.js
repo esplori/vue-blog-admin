@@ -40,7 +40,6 @@ export function tryHideFullScreenLoading () {
 // 在请求或响应被 then 或 catch 处理前拦截它们。
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
-  debugger
   let userinfo = localStorage.getItem('userInfo')
   if (userinfo) {
     userinfo = JSON.parse(userinfo)
