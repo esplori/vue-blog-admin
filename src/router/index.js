@@ -11,7 +11,7 @@ import imageManage from '@/views/admin/imageManage'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -19,7 +19,10 @@ export default new Router({
     },
     {
       path: '/login',
-      component: login
+      component: login,
+      meta: {
+        title: '登录'
+      }
     },
     {
       path: '/index',
@@ -27,7 +30,10 @@ export default new Router({
     },
     {
       path: '/detail',
-      component: detail
+      component: detail,
+      meta: {
+        title: '详情'
+      }
     },
     {
       path: '/admin',
@@ -39,25 +45,51 @@ export default new Router({
         },
         {
           path: 'pageList',
-          component: pageList
+          component: pageList,
+          meta: {
+            title: '文章管理'
+          }
         },
         {
           path: 'post',
-          component: post
+          component: post,
+          meta: {
+            title: '文章发布'
+          }
         },
         {
           path: 'edit',
-          component: post
+          component: post,
+          meta: {
+            title: '编辑'
+          }
         },
         {
           path: 'cate',
-          component: cateList
+          component: cateList,
+          meta: {
+            title: '分类管理'
+          }
         },
         {
           path: 'imageManage',
-          component: imageManage
+          component: imageManage,
+          meta: {
+            title: '图片管理'
+          }
         }
       ]
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  debugger
+  if (to.meta.title) {
+    document.title = to.meta.title + ' | ' + '开发指南'
+  }
+  next()
+})
+
+export default router
