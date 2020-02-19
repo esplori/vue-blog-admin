@@ -5,9 +5,9 @@
       <div class="content">{{item.content | filterContent}}</div>
       <div class="content-desc">
         <span><i class="el-icon-date"></i> {{item.createDate | filterDate}}</span>
-        <span><i class="el-icon-view"></i> {{item.view | randomNum}}</span>
+        <span><i class="el-icon-view"></i> {{item.views | randomNum}}</span>
+        <span><i class="el-icon-star-off"></i> {{item.likes | randomNum}}</span>
         <!-- <span><i class="el-icon-chat-line-round"></i> 评论</span> -->
-        <span><i class="el-icon-star-off"></i> {{item.like | randomNum}}</span>
       </div>
     </div>
         <div class="pagination-box" style="text-align: center;margin: 20px auto;">
@@ -62,8 +62,12 @@ export default {
       let date = new Date(val.replace(/-/g, '/') || new Date())
       return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDay()
     },
-    randomNum () {
-      return Math.ceil(Math.random() * 1000)
+    randomNum (val) {
+      if (val) {
+        return val
+      } else {
+        return Math.ceil(Math.random() * 1000)
+      }
     }
   },
   created () {
