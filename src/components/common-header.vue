@@ -7,7 +7,7 @@
       <div class="menu-list">
           <ul class="cate-list">
             <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.url)">{{item.name}}</li>
-            <li><el-input placeholder="搜索" v-model="searchKey"></el-input></li>
+            <li><el-input placeholder="搜索" v-model="searchKey" @keydown.enter.native="toSearch(searchKey)"></el-input></li>
           </ul>
           <userInfo></userInfo>
       </div>
@@ -52,6 +52,9 @@ export default {
   methods: {
     handleSelect (url) {
       url && this.$router.push({path: url})
+    },
+    toSearch (key) {
+      window.open('/#/search?key=' + encodeURIComponent(key))
     }
   }
 }

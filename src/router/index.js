@@ -36,6 +36,10 @@ const router = new Router({
       component: detail
     },
     {
+      path: '/search',
+      component: () => import('@/views/home/search')
+    },
+    {
       path: '/admin',
       component: admin,
       children: [
