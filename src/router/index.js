@@ -2,12 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import login from '@/views/account/login'
 import index from '@/views/home/index'
-import post from '@/views/admin/post'
 import detail from '@/views/home/detail'
 import admin from '@/views/admin/index'
-import pageList from '@/views/admin/pageList'
-import cateList from '@/views/admin/cateList'
-import imageManage from '@/views/admin/imageManage'
 
 Vue.use(Router)
 
@@ -49,37 +45,44 @@ const router = new Router({
         },
         {
           path: 'pageList',
-          component: pageList,
+          component: () => import('@/views/admin/pageList'),
           meta: {
             title: '文章管理'
           }
         },
         {
           path: 'post',
-          component: post,
+          component: () => import('@/views/admin/post'),
           meta: {
             title: '文章发布'
           }
         },
         {
           path: 'edit',
-          component: post,
+          component: () => import('@/views/admin/post'),
           meta: {
             title: '编辑'
           }
         },
         {
           path: 'cate',
-          component: cateList,
+          component: () => import('@/views/admin/cateList'),
           meta: {
             title: '分类管理'
           }
         },
         {
           path: 'imageManage',
-          component: imageManage,
+          component: () => import('@/views/admin/imageManage'),
           meta: {
             title: '图片管理'
+          }
+        },
+        {
+          path: 'userInfo',
+          component: () => import('@/views/admin/userInfo'),
+          meta: {
+            title: '个人资料'
           }
         }
       ]

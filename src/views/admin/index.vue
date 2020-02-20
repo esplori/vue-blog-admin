@@ -23,6 +23,10 @@
                   <i class="el-icon-picture-outline"></i>
                   图片管理
                 </el-menu-item>
+                <el-menu-item index="/admin/userInfo">
+                  <i class="el-icon-user"></i>
+                  个人资料
+                </el-menu-item>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>

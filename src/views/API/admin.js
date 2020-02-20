@@ -56,3 +56,13 @@ export async function delFileApi (data) {
   const options = {}
   return post(url, data, options)
 }
+export async function updateUserInfoApi (data) {
+  const url = `${contextPath}/account/updateUserInfo`
+  const options = {}
+  return post(url, data, options)
+}
+export async function getUserInfoApi (data) {
+  const url = `${contextPath}/account/getUserInfo`
+  const options = {}
+  return get(url, data, options)
+}
