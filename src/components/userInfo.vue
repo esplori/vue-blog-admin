@@ -1,13 +1,13 @@
 <template>
   <div class="userInfo">
     <div v-if="userInfo" class="info-flex">
-      <span @click="toAdmin" class="to-admin">后台管理</span>
       <el-dropdown @command="handleCommand">
         <span class="el-dropdown-link">
           <el-avatar size="medium" :src="userInfo.avatar"></el-avatar>
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
+          <span @click="toAdmin">后台管理</span>
           <el-dropdown-item divided>退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -65,19 +65,11 @@ export default {
     display: flex;
     align-items: center;
   }
-  .to-admin{
-    display: inline-block;
-    padding-right: 20px;
-  }
   .login-in{
     cursor: pointer;
   }
   .login-in:hover{
     text-decoration: underline;
-  }
-  .el-dropdown-link{
-    display: flex;
-    align-items: center;
   }
 }
 </style>
