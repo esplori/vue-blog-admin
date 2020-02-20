@@ -57,7 +57,7 @@ export default {
      */
     filterDate (val) {
       let date = new Date(val.replace(/-/g, '/') || new Date())
-      return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDay()
+      return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
     },
     randomNum (val) {
       if (val) {
