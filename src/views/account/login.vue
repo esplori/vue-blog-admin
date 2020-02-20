@@ -33,7 +33,7 @@ export default {
     async login () {
       let res = await loginApi(this.form)
       if (res) {
-        localStorage.setItem('userInfo', JSON.stringify(res.result))
+        localStorage.setItem('userInfo', JSON.stringify(res))
         this.$router.push({path: 'index'})
       }
     },
