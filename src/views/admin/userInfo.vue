@@ -37,14 +37,12 @@ export default {
     async submit () {
       let res = await updateUserInfoApi(this.form)
       if (res) {
-        this.list = res.result
-        this.total = res.total
+        this.$message.success('更新成功')
       }
     },
     async getUserInfo () {
       let res = await getUserInfoApi({})
       if (res) {
-        debugger
         this.form = res
       }
     }
