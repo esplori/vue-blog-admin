@@ -1,6 +1,9 @@
 <template>
   <div class="userInfo">
     <div v-if="userInfo" class="info-flex">
+      <div class="news">
+        <el-badge is-dot><i class="el-icon-bell"></i></el-badge>
+      </div>
       <el-dropdown @command="handleCommand">
         <span class="el-dropdown-link">
           <el-avatar size="medium" :src="userInfo.avatar"></el-avatar>
@@ -63,6 +66,13 @@ export default {
   .info-flex{
     display: flex;
     align-items: center;
+    .news{
+      padding: 0 20px;
+      cursor: pointer;
+      .el-icon-bell{
+        font-size: 18px;
+      }
+    }
   }
   .login-in{
     cursor: pointer;

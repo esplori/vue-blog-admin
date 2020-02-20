@@ -7,7 +7,11 @@
       <div class="menu-list">
           <ul class="cate-list">
             <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.url)">{{item.name}}</li>
-            <li><el-input placeholder="搜索" v-model="searchKey" @keydown.enter.native="toSearch(searchKey)"></el-input></li>
+            <li>
+              <el-input placeholder="搜索" v-model="searchKey" @keydown.enter.native="toSearch(searchKey)">
+                <i class="el-icon-search el-input__icon" slot="suffix" @click="toSearch(searchKey)"></i>
+              </el-input>
+            </li>
           </ul>
           <userInfo></userInfo>
       </div>
@@ -27,8 +31,7 @@ export default {
     return {
       menuList: [
         {name: '首页', url: 'index'},
-        {name: '消息', url: ''},
-        {name: '活动', url: ''}
+        {name: '关于', url: ''}
       ],
       searchKey: ''
     }
