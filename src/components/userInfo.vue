@@ -1,6 +1,6 @@
 <template>
   <div class="userInfo">
-    <div v-if="userInfo">
+    <div v-if="userInfo" class="info-flex">
       <span @click="toAdmin" class="to-admin">后台管理</span>
       <el-dropdown @command="handleCommand">
         <span class="el-dropdown-link">
@@ -61,9 +61,12 @@ export default {
   display: flex;
   align-items: center;
   font-size: 14px;
-  .to-admin{
+  .info-flex{
     display: flex;
     align-items: center;
+  }
+  .to-admin{
+    display: inline-block;
     padding-right: 20px;
   }
   .login-in{
