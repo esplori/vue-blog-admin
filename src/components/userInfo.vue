@@ -62,7 +62,8 @@ export default {
   align-items: center;
   font-size: 14px;
   .to-admin{
-    display: inline-block;
+    display: flex;
+    align-items: center;
     padding-right: 20px;
   }
   .login-in{
@@ -70,6 +71,10 @@ export default {
   }
   .login-in:hover{
     text-decoration: underline;
+  }
+  .el-dropdown-link{
+    display: flex;
+    align-items: center;
   }
 }
 </style>
