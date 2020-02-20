@@ -84,7 +84,7 @@ export default {
     },
     getDetail (item) {
       // 详情另开页面
-      window.open('/#/detail?id=' + item.id + '&title=' + encodeURIComponent(item.title))
+      window.open('/#/detail?id=' + item.id)
     },
     handleSizeChange (val) {
       this.params.pageSize = val
