@@ -7,8 +7,8 @@
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <span @click="toAdmin">后台管理</span>
-          <el-dropdown-item divided>退出</el-dropdown-item>
+          <el-dropdown-item divided command="toAdmin">后台管理</el-dropdown-item>
+          <el-dropdown-item divided command="logout">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -35,22 +35,18 @@ export default {
     /**
      * 能出
      */
-    handleCommand () {
-      localStorage.clear()
-      sessionStorage.clear()
-      this.$router.push({path: '/login'})
-    },
-    /**
-     * 登录
-     */
-    toLogin () {
-      this.$router.push({path: 'login'})
-    },
-    /**
-     * 后台管理
-     */
-    toAdmin () {
-      this.$router.push({path: 'admin'})
+    handleCommand (command) {
+      switch (command) {
+        case 'toAdmin':
+          debugger
+          this.$router.push({path: 'admin'})
+          break
+        case 'logout':
+          localStorage.clear()
+          sessionStorage.clear()
+          this.$router.push({path: '/login'})
+          break
+      }
     }
   }
 }
