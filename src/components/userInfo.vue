@@ -7,6 +7,7 @@
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item divided command="userSetting">个人设置</el-dropdown-item>
           <el-dropdown-item divided command="toAdmin">后台管理</el-dropdown-item>
           <el-dropdown-item divided command="logout">退出</el-dropdown-item>
         </el-dropdown-menu>
@@ -37,8 +38,10 @@ export default {
      */
     handleCommand (command) {
       switch (command) {
+        case 'userSetting':
+          this.$router.push({path: '/admin/userInfo'})
+          break
         case 'toAdmin':
-          debugger
           this.$router.push({path: 'admin'})
           break
         case 'logout':
@@ -66,6 +69,10 @@ export default {
   }
   .login-in:hover{
     text-decoration: underline;
+  }
+  .el-dropdown-link{
+    display: flex;
+    align-items: center;
   }
 }
 </style>
