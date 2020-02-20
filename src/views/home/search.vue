@@ -44,8 +44,10 @@ export default {
   methods: {
     async search (key) {
       let res = await searchApi({key: key})
-      if (res) {
+      if (res && res.result.length) {
         this.list = res.result
+      } else {
+        this.list = [{title: '', content: '暂无结果'}]
       }
     },
     getDetail (item) {
