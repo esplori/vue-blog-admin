@@ -13,7 +13,7 @@ export default {
   data () {
     return {
       menus: [
-        {name: '查看站点', path: '/index'}
+        {name: '查看站点', path: '/'}
       ]
     }
   },
