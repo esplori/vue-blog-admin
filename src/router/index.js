@@ -12,21 +12,16 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      component: index
-      // redirect: '/index'
+      component: index,
+      meta: {
+        title: '首页'
+      }
     },
     {
       path: '/login',
       component: login,
       meta: {
         title: '登录'
-      }
-    },
-    {
-      path: '/index',
-      component: index,
-      meta: {
-        title: '首页'
       }
     },
     {
