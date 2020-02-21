@@ -53,6 +53,9 @@ export default {
           this.$router.push({path: '/login'})
           break
       }
+    },
+    toLogin () {
+      this.$router.push({path: '/login'})
     }
   }
 }

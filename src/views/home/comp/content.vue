@@ -84,7 +84,8 @@ export default {
     },
     getDetail (item) {
       // 详情另开页面
-      window.open('/#/detail?id=' + item.id)
+      window.open('detail?id=' + item.id)
+      // this.$router.push({path: '/detail', query: {id: item.id}})
     },
     handleSizeChange (val) {
       this.params.pageSize = val
