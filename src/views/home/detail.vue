@@ -20,7 +20,7 @@
 <script>
 import {getDetailApi} from '@/views/API/home.js'
 export default {
-  metaInfo () {
+  metaInfo () { // 设置标题
     return {
       title: this.form.title + ' - 开发指南'
     }
