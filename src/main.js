@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
-import MetaInfo from 'vue-meta-info'
+import MetaInfo from 'vue-meta-info' // 引入vue-meta-info设置标题
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/reset.css'
 import '@/assets/css/common.css'
