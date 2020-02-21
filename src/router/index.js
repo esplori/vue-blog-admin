@@ -8,7 +8,6 @@ import admin from '@/views/admin/index'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
   routes: [
     {
       path: '/',
