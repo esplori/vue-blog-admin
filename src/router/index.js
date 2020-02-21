@@ -11,8 +11,8 @@ const router = new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
-      redirect: '/index'
+      path: '/'
+      // redirect: '/index'
     },
     {
       path: '/login',
