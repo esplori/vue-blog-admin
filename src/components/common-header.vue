@@ -30,8 +30,8 @@ export default {
   data () {
     return {
       menuList: [
-        {name: '首页', url: 'index'},
-        {name: '关于', url: ''}
+        {name: '首页', url: '/'},
+        {name: '关于', url: '/'}
       ],
       searchKey: ''
     }
