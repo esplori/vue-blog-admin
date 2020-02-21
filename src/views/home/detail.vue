@@ -20,9 +20,17 @@
 <script>
 import {getDetailApi} from '@/views/API/home.js'
 export default {
+  metaInfo () {
+    return {
+      title: this.form.title + ' - 开发指南'
+    }
+  },
   data () {
     return {
-      form: {}
+      form: {
+        title: '',
+        content: ''
+      }
     }
   },
   components: {
@@ -31,6 +39,8 @@ export default {
   },
   created () {
     this.getDetail(this.$route.query.id)
+  },
+  mounted () {
   },
   methods: {
     async getDetail (id) {
