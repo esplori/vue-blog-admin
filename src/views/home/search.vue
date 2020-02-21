@@ -52,7 +52,7 @@ export default {
     },
     getDetail (item) {
       // 详情另开页面
-      this.$router.push({path: '/detail', query: {id: item.id}})
+      window.open('/#/detail?id=' + item.id)
     }
   }
 }
