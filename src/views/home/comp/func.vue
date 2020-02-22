@@ -17,12 +17,7 @@ import {getRecomListApi} from '@/views/API/home.js'
 export default {
   data () {
     return {
-      list: [],
-      params: {
-        page: 1,
-        pageSize: 10,
-        cate: ''
-      }
+      list: []
     }
   },
   components: {
@@ -41,7 +36,7 @@ export default {
   },
   methods: {
     async getList () {
-      let res = await getRecomListApi(this.params)
+      let res = await getRecomListApi({})
       if (res) {
         this.list = res
       }
