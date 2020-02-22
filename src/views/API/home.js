@@ -16,3 +16,8 @@ export async function searchApi (data) {
   const options = {}
   return get(Url, data, options)
 }
+export async function getRecomListApi (data) {
+  const url = `${contextPath}/pages/getRecomList`
+  const options = {}
+  return post(url, data, options)
+}

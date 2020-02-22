@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {getListApi} from '@/views/API/home.js'
+import {getRecomListApi} from '@/views/API/home.js'
 export default {
   data () {
     return {
@@ -41,9 +41,9 @@ export default {
   },
   methods: {
     async getList () {
-      let res = await getListApi(this.params)
+      let res = await getRecomListApi(this.params)
       if (res) {
-        this.list = res.result
+        this.list = res
       }
     },
     getDetail (item) {
