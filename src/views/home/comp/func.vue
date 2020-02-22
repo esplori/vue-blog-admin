@@ -42,7 +42,7 @@ export default {
       }
     },
     getDetail (item) {
-      window.open('/#/detail?id=' + item.id)
+      window.open('/detail?id=' + item.id)
     }
   }
 }
