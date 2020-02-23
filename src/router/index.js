@@ -8,7 +8,7 @@ import admin from '@/views/admin/index'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',
@@ -32,6 +32,10 @@ const router = new Router({
     {
       path: '/search',
       component: () => import('@/views/home/search')
+    },
+    {
+      path: '/cate',
+      component: () => import('@/views/home/cate')
     },
     {
       path: '/admin',
