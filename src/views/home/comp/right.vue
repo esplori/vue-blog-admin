@@ -1,6 +1,7 @@
 <template>
   <div class="right-detail">
-    <func></func>
+    <recommend></recommend>
+    <cate></cate>
   </div>
 </template>
 
@@ -13,7 +14,8 @@ export default {
     }
   },
   components: {
-    func: () => import('./func.vue')
+    recommend: () => import('./recommend'),
+    cate: () => import('./cate')
   },
   created () {
   },
