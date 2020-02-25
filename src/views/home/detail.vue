@@ -6,7 +6,7 @@
         <el-col :span='18'>
             <div class="detail">
               <div class="title">{{form.title}}</div>
-              <div class="content" v-html="form.content"></div>
+              <div class="content" v-html="form.htmlContent"></div>
             </div>
         </el-col>
         <el-col :span="6">
