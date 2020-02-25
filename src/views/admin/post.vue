@@ -69,7 +69,7 @@ export default {
       }
     },
     async editPage () {
-      let res = await editPageApi(this.form)
+      let res = await editPageApi({...this.form, htmlContent: this.$refs.mavonEditor.d_render})
       if (res) {
         this.$message.success('修改成功')
         this.$router.push({path: '/admin/pageList'})
