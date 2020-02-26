@@ -57,7 +57,7 @@ export default {
       url && this.$router.push({path: url})
     },
     toSearch (key) {
-      window.open('/#/search?key=' + encodeURIComponent(key))
+      window.open('/search?key=' + encodeURIComponent(key))
     }
   }
 }
