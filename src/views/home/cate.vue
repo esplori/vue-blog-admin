@@ -6,7 +6,7 @@
         <el-col :span='18'>
             <div class="detail" v-for="(item,index) in list" :key="index">
               <div class="title" @click="getDetail(item)">{{item.title}}</div>
-              <div class="content">{{item.content}}</div>
+              <div class="content">{{item.content.slice(0,150)}} ...</div>
             </div>
         </el-col>
         <el-col :span="6">
