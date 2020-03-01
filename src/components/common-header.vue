@@ -3,7 +3,7 @@
 <template>
   <div class='common-header'>
     <div class="header-content">
-      <div class="logo"><span>FEKLY</span></div>
+      <div class="logo"><span>DSIAB</span></div>
       <div class="menu-list">
           <ul class="cate-list">
             <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.url)">{{item.name}}</li>
