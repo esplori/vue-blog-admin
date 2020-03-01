@@ -2,7 +2,7 @@
   <div class="content-detail">
     <div v-for="(item,index) in list" :key="index" class="list-item">
       <div class="title" @click="getDetail(item)">{{item.title}}</div>
-      <div class="content">{{item.content.slice(0.120)}}</div>
+      <div class="content">{{item.content.slice(0,120)}}</div>
       <div class="content-desc">
         <span><i class="el-icon-date"></i> {{item.createDate | filterDate}}</span>
         <span><i class="el-icon-view"></i> {{item.views | randomNum}}</span>
