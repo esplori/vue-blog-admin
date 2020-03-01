@@ -83,8 +83,8 @@ export default {
       }
     },
     getDetail (item) {
-      window.open('/detail?id=' + item.id)
-      // this.$router.push({path: '/detail', query: {id: item.id}})
+      // window.open('/detail?id=' + item.id)
+      this.$router.push({path: '/detail', query: {id: item.id}})
     },
     handleSizeChange (val) {
       this.params.pageSize = val
@@ -124,6 +124,7 @@ export default {
           font-size: 13px;
           color: #999;
           line-height: 24px;
+          word-break: break-all;
         }
 
         .content-desc {
