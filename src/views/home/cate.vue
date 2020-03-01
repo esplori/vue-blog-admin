@@ -6,7 +6,7 @@
         <el-col :span='18'>
             <div class="detail" v-for="(item,index) in list" :key="index">
               <div class="title" @click="getDetail(item)">{{item.title}}</div>
-              <div class="content">{{item.content | filterContent}}</div>
+              <div class="content">{{item.content}}</div>
             </div>
         </el-col>
         <el-col :span="6">
@@ -35,13 +35,6 @@ export default {
     right: () => import('./comp/right')
   },
   filters: {
-    /**
-     * 过滤富文本的html标签,截取前120个字作为描述
-     */
-    filterContent (str) {
-      let val = str.replace(/<[^>]+>/g, '').replace(/&lt/g, '').replace(/&gt/g, '').replace(/&nbsp/g, '')
-      return val.length >= 120 ? val.slice(0, 120) + '...' : val
-    }
   },
   created () {
     this.params.cate = this.$route.query.id
