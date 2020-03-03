@@ -42,10 +42,10 @@ export default {
     handleCommand (command) {
       switch (command) {
         case 'userSetting':
-          this.$router.push({path: '/admin/userInfo'})
+          window.open('/admin/userInfo')
           break
         case 'toAdmin':
-          this.$router.push({path: 'admin'})
+          window.open('/admin')
           break
         case 'logout':
           localStorage.clear()
