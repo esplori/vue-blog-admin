@@ -68,6 +68,7 @@ export default {
     color: #71777c;
     padding: 15px 0;
     border-bottom: 1px solid #f1f1f1;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.05);
     .header-content {
       max-width: 1150px;
       margin: 0 auto;

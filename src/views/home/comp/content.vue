@@ -102,6 +102,7 @@ export default {
   .content-detail {
     padding: 20px;
     background: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.05);
     .list-item {
         margin-bottom: 20px;
         padding-bottom: 20px;
