@@ -2,7 +2,7 @@
   <div id="app">
     <router-view/>
     <!-- copyright -->
-    <!-- <commonFooter></commonFooter> -->
+    <commonFooter></commonFooter>
   </div>
 </template>
 
