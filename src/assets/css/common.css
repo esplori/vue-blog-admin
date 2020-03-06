@@ -5,3 +5,11 @@ html,body{
   padding: 0;
   margin-bottom: 20px;
 }
+/* 以后pre标签里面的内容自动换行 */
+pre{
+  white-space:pre-wrap;
+  white-space:-moz-pre-wrap;
+  white-space:-pre-wrap;
+  white-space:-o-pre-wrap;
+  word-wrap:break-word;
+  }

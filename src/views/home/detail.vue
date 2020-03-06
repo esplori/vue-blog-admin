@@ -82,7 +82,6 @@ export default {
       .content {
         font-size: 16px;
         line-height: 30px;
-        overflow: auto;
       }
       @media screen and(max-width: 768px) {
         .pc{
