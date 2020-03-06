@@ -91,6 +91,14 @@ export default {
           display: block;
         }
       }
+      @media screen and(min-width: 769px) {
+        .pc{
+          display: block;
+        }
+        .mobile{
+          display: none;
+        }
+      }
     }
   }
 </style>
