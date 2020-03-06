@@ -7,9 +7,9 @@
       <div class="menu-list">
           <ul class="cate-list">
             <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.url)">{{item.name}}</li>
-            <li>
+            <li class="pc">
               <el-input placeholder="搜索" v-model="searchKey" @keydown.enter.native="toSearch(searchKey)">
-                <i class="el-icon-search el-input__icon" slot="suffix" @click="toSearch(searchKey)"></i>
+                <!-- <i class="el-icon-search el-input__icon" slot="suffix" @click="toSearch(searchKey)"></i> -->
               </el-input>
             </li>
           </ul>
@@ -74,6 +74,7 @@ export default {
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
+      padding: 0 20px;
       .logo{
         display: flex;
         align-items: center;
@@ -95,6 +96,12 @@ export default {
           }
           li:hover{
             text-decoration: underline;
+          }
+
+          @media screen and(max-width: 768px) {
+            .pc{
+              display: none;
+            }
           }
         }
       }
