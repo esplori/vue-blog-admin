@@ -2,12 +2,17 @@
   <div class="index-list">
     <commenHeader></commenHeader>
     <div class="index-content">
-      <el-row>
+      <el-row class="pc">
         <el-col :span="18">
           <contentList></contentList>
         </el-col>
         <el-col :span="6">
           <right></right>
+        </el-col>
+      </el-row>
+      <el-row class="mobile">
+        <el-col :span="24">
+          <contentList></contentList>
         </el-col>
       </el-row>
     </div>
@@ -57,6 +62,14 @@ export default {
       max-width: 1150px;
       margin: 0 auto;
       margin-top: 10px;
+      @media screen and(max-width: 768px) {
+        .pc{
+          display: none;
+        }
+        .mobile{
+          display: block;
+        }
+      }
     }
 
   }
