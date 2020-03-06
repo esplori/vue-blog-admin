@@ -2,7 +2,7 @@
   <div class="home-detail">
     <commenHeader></commenHeader>
     <div class="detail-content">
-      <el-row>
+      <el-row class="pc">
         <el-col :span='18'>
             <div class="detail">
               <div class="title">{{form.title}}</div>
@@ -11,6 +11,14 @@
         </el-col>
         <el-col :span="6">
             <right></right>
+        </el-col>
+      </el-row>
+      <el-row class="mobile">
+        <el-col :span='18'>
+            <div class="detail">
+              <div class="title">{{form.title}}</div>
+              <div class="content" v-html="form.htmlContent"></div>
+            </div>
         </el-col>
       </el-row>
     </div>
@@ -74,6 +82,14 @@ export default {
       .content {
         font-size: 16px;
         line-height: 30px;
+      }
+      @media screen and(max-width: 768px) {
+        .pc{
+          display: none;
+        }
+        .mobile{
+          display: block;
+        }
       }
     }
   }

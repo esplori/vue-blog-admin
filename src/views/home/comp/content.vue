@@ -16,9 +16,8 @@
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
             :current-page="params.page"
-            :page-sizes="[10, 20, 30, 40]"
             :page-size="params.pageSize"
-            layout="total, sizes, prev, pager, next, jumper"
+            layout="total, prev, pager, next, jumper"
             :total="total"></el-pagination>
           </div>
   </div>
@@ -83,8 +82,8 @@ export default {
       }
     },
     getDetail (item) {
-      window.open('/detail?id=' + item.id)
-      // this.$router.push({path: '/detail', query: {id: item.id}})
+      // window.open('/detail?id=' + item.id)
+      this.$router.push({path: '/detail', query: {id: item.id}})
     },
     handleSizeChange (val) {
       this.params.pageSize = val
