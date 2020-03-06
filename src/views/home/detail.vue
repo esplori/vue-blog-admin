@@ -14,7 +14,7 @@
         </el-col>
       </el-row>
       <el-row class="mobile">
-        <el-col :span='18'>
+        <el-col :span='24'>
             <div class="detail">
               <div class="title">{{form.title}}</div>
               <div class="content" v-html="form.htmlContent"></div>
@@ -82,6 +82,7 @@ export default {
       .content {
         font-size: 16px;
         line-height: 30px;
+        overflow: auto;
       }
       @media screen and(max-width: 768px) {
         .pc{
