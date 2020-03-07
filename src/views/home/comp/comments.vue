@@ -49,7 +49,7 @@ export default {
         content: this.content
       })
       if (res) {
-        this.list = res.result
+        this.$message.success('提交成功')
       }
     }
   }
