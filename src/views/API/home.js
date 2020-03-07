@@ -21,3 +21,13 @@ export async function getRecomListApi (data) {
   const options = {}
   return post(url, data, options)
 }
+export async function insertCommentApi (data) {
+  const url = `${contextPath}/pages/insertComment`
+  const options = {}
+  return post(url, data, options)
+}
+export async function getCommentApi (data) {
+  const url = `${contextPath}/pages/getComment`
+  const options = {}
+  return get(url, data, options)
+}
