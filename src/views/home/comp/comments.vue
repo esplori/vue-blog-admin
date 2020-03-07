@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     async getList () {
-      let res = await getCommentApi({id: this.$route.query.id})
+      let res = await getCommentApi({id: parseInt(this.$route.query.id)})
       if (res) {
         this.list = res.result || []
       }
