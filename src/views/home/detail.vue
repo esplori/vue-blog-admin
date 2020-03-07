@@ -6,6 +6,7 @@
         <el-col :span='18'>
             <div class="detail">
               <div class="title">{{form.title}}</div>
+              <author :form="form"></author>
               <div class="content" v-html="form.htmlContent"></div>
             </div>
         </el-col>
@@ -17,6 +18,7 @@
         <el-col :span='24'>
             <div class="detail">
               <div class="title">{{form.title}}</div>
+              <author :form="form"></author>
               <div class="content" v-html="form.htmlContent"></div>
             </div>
         </el-col>
@@ -43,7 +45,8 @@ export default {
   },
   components: {
     commenHeader: () => import('@/components/common-header.vue'),
-    right: () => import('./comp/right')
+    right: () => import('./comp/right'),
+    author: () => import('./comp/author')
   },
   created () {
     this.getDetail(this.$route.query.id)
