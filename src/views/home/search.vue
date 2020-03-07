@@ -62,13 +62,18 @@ export default {
       .detail{
         background: #fff;
         padding: 20px;
+        border-bottom: 1px solid #f0f0f0;
       }
       .title {
-        font-size: 30px;
-        margin-bottom: 20px;
-        color: #404040;
-        font-weight: 700;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.6;
+        color: #1a1a1a;
         cursor: pointer;
+        padding: 5px 0;
+        &:hover {
+          color: #175199;
+        }
       }
       .title:hover{
         text-decoration: underline;
