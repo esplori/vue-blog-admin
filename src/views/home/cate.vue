@@ -13,6 +13,16 @@
             <right></right>
         </el-col>
       </el-row>
+      <div class="pagination-box" style="text-align: center;margin: 20px auto;">
+      <el-pagination
+        v-if="total"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="params.page"
+        :page-size="params.pageSize"
+        layout="total, prev, pager, next"
+        :total="total"></el-pagination>
+      </div>
     </div>
   </div>
 </template>
@@ -26,8 +36,9 @@ export default {
       params: {
         page: 1,
         pageSize: 10,
-        cate: ''
-      }
+        cate: 0
+      },
+      total: 0
     }
   },
   components: {
@@ -37,7 +48,7 @@ export default {
   filters: {
   },
   created () {
-    this.params.cate = this.$route.query.id
+    this.params.cate = parseInt(this.$route.query.id)
     this.getList()
   },
   methods: {
@@ -45,6 +56,7 @@ export default {
       let res = await getListApi(this.params)
       if (res && res.result.length) {
         this.list = res.result
+        this.total = res.total
       } else {
         this.list = [{title: '', content: '暂无结果'}]
       }
@@ -52,6 +64,14 @@ export default {
     getDetail (item) {
       // 详情另开页面
       window.open('/detail?id=' + item.id)
+    },
+    handleSizeChange (val) {
+      this.params.pageSize = val
+      this.getList()
+    },
+    handleCurrentChange (val) {
+      this.params.page = val
+      this.getList()
     }
   }
 }

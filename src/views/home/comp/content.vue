@@ -10,16 +10,16 @@
         <!-- <span><i class="el-icon-chat-line-round"></i> 评论</span> -->
       </div>
     </div>
-        <div class="pagination-box" style="text-align: center;margin: 20px auto;">
-          <el-pagination
-            v-if="total"
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            :current-page="params.page"
-            :page-size="params.pageSize"
-            layout="total, prev, pager, next"
-            :total="total"></el-pagination>
-          </div>
+    <div class="pagination-box" style="text-align: center;margin: 20px auto;">
+      <el-pagination
+        v-if="total"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="params.page"
+        :page-size="params.pageSize"
+        layout="total, prev, pager, next"
+        :total="total"></el-pagination>
+      </div>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
       params: {
         page: 1,
         pageSize: 10,
-        cate: ''
+        cate: 0
       },
       total: 0
     }

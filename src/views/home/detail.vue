@@ -9,6 +9,7 @@
               <author :form="form"></author>
               <div class="content" v-html="form.htmlContent"></div>
             </div>
+            <comments></comments>
         </el-col>
         <el-col :span="6">
             <right></right>
@@ -21,6 +22,7 @@
               <author :form="form"></author>
               <div class="content" v-html="form.htmlContent"></div>
             </div>
+            <comments></comments>
         </el-col>
       </el-row>
     </div>
@@ -46,7 +48,8 @@ export default {
   components: {
     commenHeader: () => import('@/components/common-header.vue'),
     right: () => import('./comp/right'),
-    author: () => import('./comp/author')
+    author: () => import('./comp/author'),
+    comments: () => import('./comp/comments')
   },
   created () {
     this.getDetail(this.$route.query.id)
