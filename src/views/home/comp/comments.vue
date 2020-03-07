@@ -3,7 +3,7 @@
     <div class="comment-content">
       <el-input type="textarea" rows="3" :v-model="comments" placeholder="写下你的留言" style="width:100%"> </el-input>
       <div class="publish">
-        <el-button type="primary">发布</el-button>
+        <el-button type="primary" @click=submit>发布</el-button>
       </div>
     </div>
   </div>
@@ -27,6 +27,9 @@ export default {
   filters: {
   },
   methods: {
+    submit (condition) {
+      console.log(444)
+    }
   }
 }
 </script>
