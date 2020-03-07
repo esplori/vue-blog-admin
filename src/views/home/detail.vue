@@ -91,7 +91,7 @@ export default {
       }
       @media screen and(max-width: 768px) {
         .pc{
-          display: none;
+          visibility: hidden;
         }
         .mobile{
           display: block;
@@ -102,7 +102,7 @@ export default {
           display: block;
         }
         .mobile{
-          display: none;
+          visibility: hidden;
         }
       }
     }
