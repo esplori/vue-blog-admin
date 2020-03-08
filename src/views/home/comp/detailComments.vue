@@ -19,14 +19,14 @@
         <div v-for="(item,index) in list" :key="index" class="content-item">
           <div class="username">{{item.username}}</div>
           <div class="content">{{item.content}}</div>
-          <div class="date">{{item.createDate}}</div>
+          <div class="date">{{item.createDate}} <span @click="delComment(item.id)" v-if="showDel">删除</span></div>
         </div>
     </div>
   </div>
 </template>
 
 <script>
-import {insertCommentApi, getCommentApi} from '@/views/API/home.js'
+import {insertCommentApi, getCommentApi, delCommentApi} from '@/views/API/home.js'
 export default {
   data () {
     return {
@@ -42,6 +42,15 @@ export default {
   components: {
   },
   computed: {
+    showDel () {
+      let userinfo = localStorage.getItem('userInfo')
+      if (userinfo) {
+        userinfo = JSON.parse(userinfo)
+        return userinfo.role === 'admin'
+      } else {
+        return false
+      }
+    }
   },
   created () {
     this.getList()
@@ -67,6 +76,12 @@ export default {
         }
       } else {
         this.$message.warning('请输入名称和内容')
+      }
+    },
+    async delComment (id) {
+      let res = await delCommentApi({id})
+      if (res) {
+        this.getList()
       }
     }
   }

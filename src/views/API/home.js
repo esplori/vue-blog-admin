@@ -31,3 +31,8 @@ export async function getCommentApi (data) {
   const options = {}
   return get(url, data, options)
 }
+export async function delCommentApi (data) {
+  const url = `${contextPath}/pages/delComment`
+  const options = {}
+  return post(url, data, options)
+}
