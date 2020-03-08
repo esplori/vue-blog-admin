@@ -1,7 +1,15 @@
 <template>
   <div class="comments">
     <div class="insert-comment">
-      <el-input type="textarea" rows="3" v-model="content" placeholder="写下你的留言" style="width:100%"> </el-input>
+      <h2 class="comment-title">发表留言：</h2>
+      <el-form :model="form" label-width="60px">
+        <el-form-item label="名称：">
+          <el-input v-model.trim="form.username" placeholder="名称"></el-input>
+        </el-form-item>
+        <el-form-item label="内容：">
+          <el-input type="textarea" rows="3" v-model.trim="form.content" placeholder="写下你的留言"> </el-input>
+        </el-form-item>
+      </el-form>
       <div class="publish">
         <el-button type="primary" @click=submit>发布</el-button>
       </div>
@@ -9,8 +17,9 @@
     <div class="comment-list" v-show="list.length">
         <h2>精选留言</h2>
         <div v-for="(item,index) in list" :key="index" class="content-item">
-          <div class="date">{{item.createDate}}</div>
+          <div class="username">{{item.username}}</div>
           <div class="content">{{item.content}}</div>
+          <div class="date">{{item.createDate}}</div>
         </div>
     </div>
   </div>
@@ -22,7 +31,10 @@ export default {
   data () {
     return {
       list: [],
-      content: ''
+      form: {
+        username: '',
+        content: ''
+      }
     }
   },
   props: {
@@ -44,12 +56,17 @@ export default {
       }
     },
     async submit () {
-      let res = await insertCommentApi({
-        parentId: this.$route.query.id,
-        content: this.content
-      })
-      if (res) {
-        this.$message.success('提交成功')
+      if (this.form.name && this.form.content) {
+        let res = await insertCommentApi({
+          parentId: this.$route.query.id,
+          username: this.form.username,
+          content: this.form.content
+        })
+        if (res) {
+          this.$message.success('提交成功')
+        }
+      } else {
+        this.$message.warning('请输入名称和内容')
       }
     }
   }
@@ -70,12 +87,24 @@ export default {
       padding: 10px 0;
       text-align: right;
     }
+    .comment-title{
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
   }
   .comment-list{
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
     .content-item{
       padding: 20px 0;
       font-size: 16px;
-      border-bottom: 1px solid #f0f0f0;
+      border-bottom: 1px dashed #ddd;
+      .username{
+        font-size: 14px;
+        text-decoration: underline;
+      }
       .date{
         font-size: 12px;
       }
