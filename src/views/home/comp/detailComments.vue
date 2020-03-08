@@ -56,7 +56,7 @@ export default {
       }
     },
     async submit () {
-      if (this.form.name && this.form.content) {
+      if (this.form.username && this.form.content) {
         let res = await insertCommentApi({
           parentId: this.$route.query.id,
           username: this.form.username,
