@@ -62,6 +62,7 @@ export default {
       max-width: 1150px;
       margin: 0 auto;
       margin-top: 10px;
+      box-sizing: content-box;
       @media screen and(max-width: 768px) {
         .pc{
           display: none;

@@ -31,7 +31,7 @@ export default {
     width: 100%;
     text-align: left;
     background:#fff;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     div{
       padding: 20px 0
     }
