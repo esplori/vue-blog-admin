@@ -62,7 +62,7 @@ export default {
       if (val) {
         return val
       } else {
-        return Math.ceil(Math.random() * 1000)
+        return Math.ceil(Math.random() * 100)
       }
     }
   },
