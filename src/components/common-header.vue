@@ -26,7 +26,7 @@ export default {
     return {
       menuList: [
         {name: '首页', url: '/'},
-        {name: '关于', url: '/'}
+        {name: '关于', url: '/about'}
       ]
     }
   },
