@@ -49,7 +49,7 @@ export default {
     commenHeader: () => import('@/components/common-header.vue'),
     sideBar: () => import('./comp/sideBar'),
     author: () => import('./comp/author'),
-    comments: () => import('./comp/comments')
+    comments: () => import('./comp/detailComments')
   },
   created () {
     this.getDetail(this.$route.query.id)
