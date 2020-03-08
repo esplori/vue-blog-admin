@@ -48,7 +48,10 @@ export default {
     }
     .item{
       padding: 20px 0;
-      font-size: 16px;
+      font-size: 14px;
+      li{
+        padding: 5px 0;
+      }
     }
   }
 </style>
