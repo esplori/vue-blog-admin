@@ -14,7 +14,7 @@ const router = new Router({
       path: '/',
       component: index,
       meta: {
-        title: '首页'
+        title: 'javascript技术分享'
       }
     },
     {
@@ -36,6 +36,13 @@ const router = new Router({
     {
       path: '/cate',
       component: () => import('@/views/home/cate')
+    },
+    {
+      path: '/about',
+      component: () => import('@/views/home/about'),
+      meta: {
+        title: '关于'
+      }
     },
     {
       path: '/admin',
