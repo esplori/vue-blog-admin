@@ -1,6 +1,7 @@
 <template>
   <div class="right-detail">
     <recommend></recommend>
+    <search></search>
     <cate></cate>
   </div>
 </template>
@@ -15,7 +16,8 @@ export default {
   },
   components: {
     recommend: () => import('./recommend'),
-    cate: () => import('./cate')
+    cate: () => import('./cate'),
+    search: () => import('./search')
   },
   created () {
   },

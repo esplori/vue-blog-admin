@@ -63,6 +63,7 @@ export default {
   display: flex;
   padding: 20px;
   flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   .insert-comment{
     width: 100%;
     .publish{

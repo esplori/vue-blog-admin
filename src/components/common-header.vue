@@ -7,11 +7,6 @@
       <div class="menu-list">
           <ul class="cate-list">
             <li v-for="(item, index) in menuList" :key="index" @click="handleSelect(item.url)">{{item.name}}</li>
-            <li class="pc">
-              <el-input placeholder="搜索" v-model="searchKey" @keydown.enter.native="toSearch(searchKey)">
-                <!-- <i class="el-icon-search el-input__icon" slot="suffix" @click="toSearch(searchKey)"></i> -->
-              </el-input>
-            </li>
           </ul>
           <userInfo></userInfo>
       </div>
@@ -32,8 +27,7 @@ export default {
       menuList: [
         {name: '首页', url: '/'},
         {name: '关于', url: '/'}
-      ],
-      searchKey: ''
+      ]
     }
   },
   // 当前定义的计算属性
@@ -55,9 +49,6 @@ export default {
   methods: {
     handleSelect (url) {
       url && this.$router.push({path: url})
-    },
-    toSearch (key) {
-      window.open('/search?key=' + encodeURIComponent(key))
     }
   }
 }
@@ -96,12 +87,6 @@ export default {
           }
           li:hover{
             text-decoration: underline;
-          }
-
-          @media screen and(max-width: 768px) {
-            .pc{
-              display: none;
-            }
           }
         }
       }
