@@ -7,7 +7,7 @@
         <span><i class="el-icon-date"></i> {{item.createDate | filterDate}}</span>
         <span><i class="el-icon-view"></i> {{item.views | randomNum}}</span>
         <span><i class="el-icon-star-off"></i> {{item.likes | randomNum}}</span>
-        <!-- <span><i class="el-icon-chat-line-round"></i> 评论</span> -->
+        <span><i class="el-icon-chat-line-round"></i> {{item.comments}}</span>
       </div>
     </div>
     <div class="pagination-box" style="text-align: center;margin: 20px auto;">
@@ -86,8 +86,8 @@ export default {
     },
     getDetail (item) {
       // 另开标签
-      window.open('/detail?id=' + item.id)
-      // this.$router.push({path: '/detail', query: {id: item.id}})
+      // window.open('/detail?id=' + item.id)
+      this.$router.push({path: '/detail', query: {id: item.id}})
     },
     handleSizeChange (val) {
       this.params.pageSize = val
