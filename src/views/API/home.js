@@ -36,3 +36,8 @@ export async function delCommentApi (data) {
   const options = {}
   return post(url, data, options)
 }
+export async function getLatestCommentsApi (data) {
+  const url = `${contextPath}/pages/getLatestComments`
+  const options = {}
+  return get(url, data, options)
+}

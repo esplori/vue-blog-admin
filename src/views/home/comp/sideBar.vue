@@ -3,11 +3,11 @@
     <recommend></recommend>
     <search></search>
     <cate></cate>
+    <latestComments></latestComments>
   </div>
 </template>
 
 <script>
-// import {getDetailApi} from '@/views/API/home.js'
 export default {
   data () {
     return {
@@ -17,7 +17,8 @@ export default {
   components: {
     recommend: () => import('./recommend'),
     cate: () => import('./cate'),
-    search: () => import('./search')
+    search: () => import('./search'),
+    latestComments: () => import('./latestComments')
   },
   created () {
   },
