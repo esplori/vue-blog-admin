@@ -12,7 +12,7 @@
             <comments></comments>
         </el-col>
         <el-col :span="6">
-            <right></right>
+            <sideBar></sideBar>
         </el-col>
       </el-row>
       <el-row class="mobile">
@@ -47,7 +47,7 @@ export default {
   },
   components: {
     commenHeader: () => import('@/components/common-header.vue'),
-    right: () => import('./comp/right'),
+    sideBar: () => import('./comp/sideBar'),
     author: () => import('./comp/author'),
     comments: () => import('./comp/comments')
   },

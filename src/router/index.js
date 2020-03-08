@@ -31,7 +31,7 @@ const router = new Router({
     },
     {
       path: '/search',
-      component: () => import('@/views/home/search')
+      component: () => import('@/views/home/searchResult')
     },
     {
       path: '/cate',

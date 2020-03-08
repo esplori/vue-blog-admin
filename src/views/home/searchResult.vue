@@ -10,7 +10,7 @@
             </div>
         </el-col>
         <el-col :span="6">
-            <right></right>
+            <sideBar></sideBar>
         </el-col>
       </el-row>
     </div>
@@ -27,7 +27,7 @@ export default {
   },
   components: {
     commenHeader: () => import('@/components/common-header.vue'),
-    right: () => import('./comp/right')
+    sideBar: () => import('./comp/sideBar')
   },
   filters: {
   },

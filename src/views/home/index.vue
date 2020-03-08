@@ -7,7 +7,7 @@
           <contentList></contentList>
         </el-col>
         <el-col :span="6">
-          <right></right>
+          <sideBar></sideBar>
         </el-col>
       </el-row>
       <el-row class="mobile">
@@ -29,7 +29,7 @@ export default {
     // 公共头部
     commenHeader: () => import('@/components/common-header.vue'),
     contentList: () => import('./comp/content.vue'),
-    right: () => import('./comp/right.vue')
+    sideBar: () => import('./comp/sideBar.vue')
   },
   created () {
   },
