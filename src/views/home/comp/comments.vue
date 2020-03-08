@@ -6,7 +6,7 @@
         <el-button type="primary" @click=submit>发布</el-button>
       </div>
     </div>
-    <div class="comment-list">
+    <div class="comment-list" v-show="list.length">
         <h2>精选留言</h2>
         <div v-for="(item,index) in list" :key="index" class="content-item">
           <div class="date">{{item.createDate}}</div>
