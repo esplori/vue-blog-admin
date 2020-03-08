@@ -67,12 +67,15 @@ export default {
     }
   },
   created () {
+    this.getCate()
     this.getList()
   },
   methods: {
-    handleCate (cate) {
-      this.params.cate = parseInt(cate)
-      this.getList()
+    getCate () {
+      let cateId = this.$route.query.id
+      if (cateId) {
+        this.params.cate = cateId
+      }
     },
     async getList () {
       let res = await getListApi(this.params)
