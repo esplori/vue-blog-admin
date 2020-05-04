@@ -35,7 +35,7 @@ export default {
       }
     },
     getDetail (item) {
-      window.open('/cate?id=' + item.id)
+      window.open('/#/cate?id=' + item.id)
     }
   }
 }

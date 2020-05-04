@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     toSearch (key) {
-      window.open('/search?key=' + encodeURIComponent(key))
+      window.open('/#/search?key=' + encodeURIComponent(key))
     }
   }
 }
