@@ -42,10 +42,10 @@ export default {
     handleCommand (command) {
       switch (command) {
         case 'userSetting':
-          window.open('/admin/userInfo')
+          window.open('/#/admin/userInfo')
           break
         case 'toAdmin':
-          window.open('/admin')
+          window.open('/#/admin')
           break
         case 'logout':
           localStorage.clear()
