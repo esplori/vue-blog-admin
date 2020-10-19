@@ -34,7 +34,7 @@ export default {
       let res = await loginApi(this.form)
       if (res) {
         localStorage.setItem('userInfo', JSON.stringify(res))
-        this.$router.push({path: '/'})
+        this.$router.push({path: '/admin'})
       }
     },
     register () {}

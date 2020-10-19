@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import login from '@/views/account/login'
-import index from '@/views/home/index'
+// import index from '@/views/home/index'
 import detail from '@/views/home/detail'
 import admin from '@/views/admin/index'
 
@@ -12,37 +12,11 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      component: index,
-      meta: {
-        title: 'javascript技术分享'
-      }
+      redirect: 'login'
     },
     {
       path: '/login',
-      component: login,
-      meta: {
-        title: '登录'
-      }
-    },
-    {
-      path: '/detail',
-      name: 'detail',
-      component: detail
-    },
-    {
-      path: '/search',
-      component: () => import('@/views/home/searchResult')
-    },
-    {
-      path: '/cate',
-      component: () => import('@/views/home/cate')
-    },
-    {
-      path: '/about',
-      component: () => import('@/views/home/about'),
-      meta: {
-        title: '关于'
-      }
+      component: login
     },
     {
       path: '/admin',
@@ -54,45 +28,27 @@ const router = new Router({
         },
         {
           path: 'pageList',
-          component: () => import('@/views/admin/pageList'),
-          meta: {
-            title: '文章管理'
-          }
+          component: () => import('@/views/admin/pageList')
         },
         {
           path: 'post',
-          component: () => import('@/views/admin/post'),
-          meta: {
-            title: '文章发布'
-          }
+          component: () => import('@/views/admin/post')
         },
         {
           path: 'edit',
-          component: () => import('@/views/admin/post'),
-          meta: {
-            title: '编辑'
-          }
+          component: () => import('@/views/admin/post')
         },
         {
           path: 'cate',
-          component: () => import('@/views/admin/cateList'),
-          meta: {
-            title: '分类管理'
-          }
+          component: () => import('@/views/admin/cateList')
         },
         {
           path: 'imageManage',
-          component: () => import('@/views/admin/imageManage'),
-          meta: {
-            title: '图片管理'
-          }
+          component: () => import('@/views/admin/imageManage')
         },
         {
           path: 'userInfo',
-          component: () => import('@/views/admin/userInfo'),
-          meta: {
-            title: '个人资料'
-          }
+          component: () => import('@/views/admin/userInfo')
         }
       ]
     }
@@ -100,10 +56,6 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  /* 路由发生变化修改页面title */
-  if (to.meta.title) {
-    document.title = to.meta.title + ' -  javascript技术分享'
-  }
   next()
 })
 
