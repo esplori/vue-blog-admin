@@ -113,7 +113,7 @@ function handleData (res, resolve, reject) {
 function handleAuthenticated (res) {
   switch (res.response.status) {
     case 401:
-      location.href = '/login'
+      location.href = '/#/login'
       localStorage.clear()
   }
 }
