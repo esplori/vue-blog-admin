@@ -19,13 +19,13 @@
                  <i class="el-icon-s-operation"></i>
                   分类管理
                 </el-menu-item>
-                <el-menu-item index="/admin/imageManage">
-                  <i class="el-icon-picture-outline"></i>
-                  图片管理
-                </el-menu-item>
+                <!--<el-menu-item index="/admin/imageManage">-->
+                  <!--<i class="el-icon-picture-outline"></i>-->
+                  <!--图片管理-->
+                <!--</el-menu-item>-->
                 <el-menu-item index="/admin/userInfo">
                   <i class="el-icon-user"></i>
-                  个人资料
+                  系统设置
                 </el-menu-item>
               </el-menu-item-group>
             </el-submenu>

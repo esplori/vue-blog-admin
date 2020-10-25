@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import login from '@/views/account/login'
 // import index from '@/views/home/index'
-import detail from '@/views/home/detail'
+// import detail from '@/views/home/detail'
 import admin from '@/views/admin/index'
 
 Vue.use(Router)

@@ -13,10 +13,10 @@ module.exports = {
     proxyTable: {
       '/': {
         target: 'http://localhost:8091',
-        changeOrigin: true,  //是否跨域
-        pathRewrite: {
-          '': ''   //需要rewrite重写的,
-        }
+        changeOrigin: true  //是否跨域
+        // pathRewrite: {
+        //   '': ''   //需要rewrite重写的,
+        // }
       }
     },
 
