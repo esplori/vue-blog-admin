@@ -19,10 +19,10 @@
                  <i class="el-icon-s-operation"></i>
                   分类管理
                 </el-menu-item>
-                <!--<el-menu-item index="/admin/imageManage">-->
-                  <!--<i class="el-icon-picture-outline"></i>-->
-                  <!--图片管理-->
-                <!--</el-menu-item>-->
+                <el-menu-item index="/admin/navigationList">
+                  <i class="el-icon-picture-outline"></i>
+                  导航管理
+                </el-menu-item>
                 <el-menu-item index="/admin/userInfo">
                   <i class="el-icon-user"></i>
                   系统设置

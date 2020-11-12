@@ -49,6 +49,14 @@ const router = new Router({
         {
           path: 'userInfo',
           component: () => import('@/views/admin/userInfo')
+        },
+        {
+          path: 'navigationList',
+          component: () => import('@/views/admin/navigationList')
+        },
+        {
+          path: 'navigationEdit',
+          component: () => import('@/views/admin/navigationEdit')
         }
       ]
     }
