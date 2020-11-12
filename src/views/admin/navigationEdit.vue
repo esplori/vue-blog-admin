@@ -67,14 +67,14 @@ export default {
       let res = await editPageApi({...this.form})
       if (res) {
         this.$message.success('修改成功')
-        this.$router.push({path: '/admin/navigationEdit'})
+        this.$router.push({path: '/admin/navigationList'})
       }
     },
     async postPage () {
       let res = await postPageApi({...this.form})
       if (res) {
         this.$message.success('添加成功')
-        this.$router.push({path: '/admin/navigationEdit'})
+        this.$router.push({path: '/admin/navigationList'})
       }
     },
     async getDetail (id) {
