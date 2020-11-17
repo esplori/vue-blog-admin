@@ -2,7 +2,7 @@
   <div class="page-list">
     <div class="handle">
       <el-button type="primary" @click="insertPage">新增网站</el-button>
-      <el-button type="primary" @click="multipleDel">批量删除</el-button>
+      <!-- <el-button type="primary" @click="multipleDel">批量删除</el-button> -->
     </div>
     <el-table
       :data="list"
