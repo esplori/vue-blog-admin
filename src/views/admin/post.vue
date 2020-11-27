@@ -5,7 +5,8 @@
         <el-input v-model="form.title"></el-input>
       </el-form-item>
       <el-form-item label="内容：">
-        <mavon-editor v-model="form.content" ref="mavonEditor"></mavon-editor>
+        <Editor v-model="form.content" :init="init"></Editor>
+        <!-- <mavon-editor v-model="form.content" ref="mavonEditor"></mavon-editor> -->
       </el-form-item>
       <el-form-item label="分类：">
         <el-select v-model="form.cate">
@@ -25,7 +26,7 @@
   </div>
 </template>
 <script>
-
+import Editor from '@tinymce/tinymce-vue';
 import {postPageApi, editPageApi, getDetailApi, getCateApi} from '@/views/API/admin.js'
 export default {
   data () {
@@ -38,10 +39,26 @@ export default {
         views: 0,
         likes: 0
       },
-      cateList: []
+      cateList: [],
+      init: {
+        automatic_uploads: false,
+        images_upload_url: "postAcceptor.php",
+        height: 800,
+        menubar: true,
+        plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table paste code help wordcount",
+        ],
+        toolbar:  
+        "undo redo | formatselect | bold italic backcolor | \
+        alignleft aligncenter alignright alignjustify | \
+        bullist numlist outdent indent | removeformat | help",
+      }
     }
   },
   components: {
+    Editor
   },
   mounted () {
   },
@@ -69,7 +86,7 @@ export default {
       }
     },
     async editPage () {
-      let res = await editPageApi({...this.form, htmlContent: this.$refs.mavonEditor.d_render})
+      let res = await editPageApi({...this.form, htmlContent: this.form.content})
       if (res) {
         this.$message.success('修改成功')
         this.$router.push({path: '/admin/pageList'})
