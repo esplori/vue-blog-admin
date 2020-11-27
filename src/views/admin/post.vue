@@ -42,7 +42,9 @@ export default {
       cateList: [],
       init: {
         automatic_uploads: false,
-        images_upload_url: "postAcceptor.php",
+        images_upload_handler: function (blobInfo, success, failure, progress) {
+          // success('data:image/jpeg;base64,' + blobInfo.base64())
+        },
         height: 800,
         menubar: true,
         plugins: [
