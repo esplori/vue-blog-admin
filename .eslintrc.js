@@ -30,6 +30,7 @@ module.exports = {
     'comma-dangle': 'off',
     'no-multi-str': 'off',
     'no-trailing-spaces': 'off',
-    'semi': 'off'
+    'semi': 'off',
+    'space-before-function-paren': 'off'
   }
 }
