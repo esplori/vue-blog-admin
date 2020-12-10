@@ -1,7 +1,7 @@
 <template>
   <div class="admin-header">
     <div>
-      <router-link v-for="(item,index) in menus" :key="index" :to="{path: item.path}" tag="li">{{item.name}}</router-link>
+      <!-- <router-link v-for="(item,index) in menus" :key="index" :to="{path: item.path}" tag="li">{{item.name}}</router-link> -->
     </div>
     <userInfo></userInfo>
   </div>
