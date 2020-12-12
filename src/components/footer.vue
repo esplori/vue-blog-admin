@@ -2,7 +2,7 @@
 */
 <template>
   <div class='footer'>
-    <span v-html="copyRight"></span>copyRight {{currentDate}} <a href="http://beian.miit.gov.cn/"> 粤ICP备20013202号-1 </a>
+    <span v-html="copyRight"></span>copyRight {{currentDate}} <a href="http://beian.miit.gov.cn/"> 粤ICP备20013202号</a>
   </div>
 </template>
 <script>

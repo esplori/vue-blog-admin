@@ -24,6 +24,9 @@
       <el-form-item label="收藏量：">
         <el-input v-model.number="form.likes" type="number"></el-input>
       </el-form-item>
+      <el-form-item label="关键字：">
+        <el-input v-model="form.keywords"></el-input>
+      </el-form-item>
       <el-form-item>
         <el-button @click="submit" type="primary">确定</el-button>
       </el-form-item>
@@ -48,6 +51,7 @@ export default {
         cate: "",
         views: 0,
         likes: 0,
+        keywords: ''
       },
       cateList: [],
       init: {
