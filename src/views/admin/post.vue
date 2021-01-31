@@ -60,7 +60,7 @@ export default {
           var xhr, formData;
           xhr = new XMLHttpRequest();
           xhr.withCredentials = false;
-          xhr.open("POST", "/bootService/pages/upload");
+          xhr.open("POST", "/bootService/account/upload");
           xhr.onload = function () {
             var json;
             if (xhr.status !== 200) {
