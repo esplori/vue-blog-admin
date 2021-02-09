@@ -57,6 +57,10 @@ const router = new Router({
         {
           path: 'navigationEdit',
           component: () => import('@/views/admin/navigationEdit')
+        },
+        {
+          path: 'sourceList',
+          component: () => import('@/views/admin/sourceList')
         }
       ]
     }

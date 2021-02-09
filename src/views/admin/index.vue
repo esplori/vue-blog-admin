@@ -23,6 +23,10 @@
                   <i class="el-icon-picture-outline"></i>
                   导航管理
                 </el-menu-item>
+                 <el-menu-item index="/admin/sourceList">
+                  <i class="el-icon-picture-outline"></i>
+                  资源管理
+                </el-menu-item>
                 <el-menu-item index="/admin/userInfo">
                   <i class="el-icon-user"></i>
                   系统设置
