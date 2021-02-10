@@ -66,3 +66,8 @@ export async function getUserInfoApi (data) {
   const options = {}
   return get(url, data, options)
 }
+export async function getSourceListApi (data) {
+  const url = `${contextPath}/pages/getSourceList`
+  const options = {}
+  return get(url, data, options)
+}

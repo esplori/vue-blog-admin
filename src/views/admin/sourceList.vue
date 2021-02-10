@@ -3,6 +3,11 @@
     <div class="handle">
       <el-button type="primary" @click="addFile">新增文件</el-button>
     </div>
+    <el-tabs v-model="activeName" @tab-click="handleClick">
+      <el-tab-pane label="图片" name="image"></el-tab-pane>
+      <el-tab-pane label="影音" name="media"></el-tab-pane>
+      <el-tab-pane label="文档" name="file"></el-tab-pane>
+  </el-tabs>
     <el-table
       :data="list"
       style="width: 100%">
@@ -11,8 +16,11 @@
         width="55">
       </el-table-column>
       <el-table-column
-        prop="title"
-        label="标题">
+        prop=""
+        label="名称">
+        <template slot-scope="scope">
+          <img :src="scope.row" alt="" width="40px" height="40px">
+        </template>
       </el-table-column>
       <el-table-column
         label="操作"
@@ -45,24 +53,28 @@
 </template>
 
 <script>
-import {delApi, getListApi} from '@/views/API/navigation.js'
+import {delApi, getSourceListApi} from '@/views/API/admin.js'
 
 export default {
   data () {
     return {
       list: [],
-      dialogVisible: false
+      dialogVisible: false,
+      activeName: 'image'
     }
   },
   created () {
     this.getList()
   },
   methods: {
+    handleClick(val) {
+      this.getList(this.activeName)
+    },
     addFile() {
       this.dialogVisible = true
     },
-    async getList () {
-      let res = await getListApi(this.params)
+    async getList (type) {
+      let res = await getSourceListApi({})
       if (res) {
         this.list = res.result
       }
