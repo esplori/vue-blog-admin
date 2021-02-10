@@ -2,19 +2,22 @@
   <div class="user-info">
     <el-form :model="form" label-width="140px" style="width: 30%">
       <el-form-item label="站点名称:">
-        <el-input v-model="form.nickname"></el-input>
+        <el-input v-model="form.nickname" type="textarea"></el-input>
       </el-form-item>
       <el-form-item label="站点描述:">
-        <el-input v-model="form.userdesc"></el-input>
+        <el-input v-model="form.userdesc" type="textarea"></el-input>
       </el-form-item>
       <el-form-item label="站点图标:">
         <el-input v-model="form.avatar"> </el-input>
       </el-form-item>
       <el-form-item label="文件引用路径:">
-        <el-input v-model="form.sourceUrl"> </el-input>
+        <el-input v-model="form.sourceUrl" type="textarea"> </el-input>
       </el-form-item>
       <el-form-item label="文件上传实际路径:">
-        <el-input v-model="form.sourceRealUrl"> </el-input>
+        <el-input v-model="form.sourceRealUrl" type="textarea"> </el-input>
+      </el-form-item>
+      <el-form-item label="备案号:">
+        <el-input v-model="form.beianNo" type="textarea"> </el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submit">提交</el-button>

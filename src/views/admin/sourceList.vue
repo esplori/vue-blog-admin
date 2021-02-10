@@ -19,7 +19,7 @@
         prop=""
         label="名称">
         <template slot-scope="scope">
-          <img :src="scope.row" alt="" width="40px" height="40px">
+          {{scope.row.filename}}
         </template>
       </el-table-column>
       <el-table-column
@@ -60,7 +60,8 @@ export default {
     return {
       list: [],
       dialogVisible: false,
-      activeName: 'image'
+      activeName: 'image',
+      sourceUrl: ''
     }
   },
   created () {
@@ -77,6 +78,7 @@ export default {
       let res = await getSourceListApi({})
       if (res) {
         this.list = res.result
+        this.sourceUrl = res.sourceUrl
       }
     },
     async del (id) {
